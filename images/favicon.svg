@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <g transform="translate(32,28)">
+    <!-- rosa stilizzata -->
+    <g fill="#e8b4c4" stroke="#c98ea1" stroke-width="0.6">
+      <path d="M0,-12 C-7,-14 -14,-9 -14,-2 C-14,6 -7,12 0,12 C7,12 14,6 14,-2 C14,-9 7,-14 0,-12 Z"/>
+      <path d="M0,-8 C-4,-9 -8,-6 -8,-2 C-8,3 -4,7 0,7 C4,7 8,3 8,-2 C8,-6 4,-9 0,-8 Z" fill="#f3d2dd"/>
+      <path d="M0,-4 C-2,-5 -4,-3 -4,-1 C-4,2 -2,4 0,4 C2,4 4,2 4,-1 C4,-3 2,-5 0,-4 Z" fill="#fff7ec"/>
+    </g>
+    <!-- stelo + foglia -->
+    <line x1="0" y1="12" x2="0" y2="32" stroke="#7a8c5b" stroke-width="1.5"/>
+    <path d="M0,20 C-6,18 -8,22 -6,26 C-2,24 0,22 0,20 Z" fill="#94a87e" stroke="#7a8c5b" stroke-width="0.5"/>
+  </g>
+</svg>
