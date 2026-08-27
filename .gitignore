@@ -28,3 +28,7 @@ build/
 
 # Log e file temporanei
 *.log
+
+# File generati temporaneamente nella root (es. qrcode.png di prova)
+# Non rimuovere se hai un file con questo nome altrove.
+/qrcode.png
