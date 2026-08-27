@@ -102,3 +102,11 @@ Zefiro_di_Oksi/
 
 Il codice del sito è rilasciato con licenza MIT. Il marchio "Zefiro di Oksi",
 il logo e le foto dei fiori sono di proprietà di Oksana.
+
+## Deploy
+
+Il sito è servito da [Cloudflare Pages](https://pages.cloudflare.com/) con
+deploy automatico: ogni `git push` sul branch `main` del repository GitHub
+innesca un nuovo build in circa un minuto.
+
+URL di produzione: <https://zefiro-di-oksi.pages.dev>.
