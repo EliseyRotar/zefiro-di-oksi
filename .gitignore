@@ -1,8 +1,22 @@
-# Cloudflare Pages
-# (riscritto dai commit iniziali, serve solo per indicare la root del deploy)
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*~
 
-# Disabilita processing automatico dei file statici:
-# - _redirects gestito manualmente sotto
-# - niente file _headers per ora
+# Node (se in futuro aggiungi tooling)
+node_modules/
+.npm
+.pnpm-store/
 
-_redirects
+# Build output
+dist/
+build/
+.cache/
+
+# File temporanei di terze parti
+*.log
+.env
+.env.local
