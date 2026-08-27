@@ -1,0 +1,8 @@
+# Cloudflare Pages
+# (riscritto dai commit iniziali, serve solo per indicare la root del deploy)
+
+# Disabilita processing automatico dei file statici:
+# - _redirects gestito manualmente sotto
+# - niente file _headers per ora
+
+_redirects
