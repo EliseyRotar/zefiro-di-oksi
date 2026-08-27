@@ -16,7 +16,15 @@ dist/
 build/
 .cache/
 
-# File temporanei di terze parti
-*.log
+# Credenziali e segreti locali
+# ----------------------------------------
+# .env contiene i token Cloudflare, GitHub, ecc. usati dagli script locali
+# (es. wrangler per il deploy). NON deve mai essere committato.
 .env
 .env.local
+.env.*.local
+*.pem
+*.key
+
+# Log e file temporanei
+*.log
