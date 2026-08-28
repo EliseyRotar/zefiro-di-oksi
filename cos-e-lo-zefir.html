@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cos'è lo zefir — Zefiro di Oksi</title>
-  <meta name="description" content="Cos'è la fioristica di zefir: un dolce sofficissimo fatto a mano, con purea di frutta, albumina e agar-agar." />
+  <title data-i18n="meta.zefir.title">Cos'è lo zefir — Zefiro di Oksi</title>
+  <meta name="description" content="Cos'è la fioristica di zefir: un dolce sofficissimo fatto a mano." data-i18n-attr="content" data-i18n="meta.zefir.desc" />
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -19,51 +19,85 @@
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="Zefiro di Oksi, vai alla home">
         <img class="brand-logo" src="images/logo-header.png" alt="Zefiro di Oksi" />
-        <span>
+        <span class="brand-text">
           <span class="brand-name">Zefiro di Oksi</span>
-          <span class="brand-tag">fiori di zefir fatti a mano</span>
+          <span class="brand-tag" data-i18n="site.tagline">fiori di zefir fatti a mano</span>
         </span>
       </a>
-      <button class="nav-toggle" type="button"
-              aria-controls="primary-nav" aria-expanded="false"
-              aria-label="Apri il menu">
-        <span>Menu</span>
-      </button>
+      <div class="lang-switch" role="group" aria-label="Cambia lingua">
+        <button class="lang-btn" type="button" data-lang-switch="it" aria-label="Italiano"><img src="images/flags/it.svg" alt="IT" /></button>
+        <button class="lang-btn" type="button" data-lang-switch="ru" aria-label="Русский"><img src="images/flags/ru.svg" alt="RU" /></button>
+        <button class="lang-btn" type="button" data-lang-switch="en" aria-label="English"><img src="images/flags/en.svg" alt="EN" /></button>
+      </div>
     </div>
-    <nav id="primary-nav" class="nav" aria-label="Navigazione principale">
-      <ul class="nav-list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="chi-sono.html">Chi sono</a></li>
-        <li><a href="cos-e-lo-zefir.html" aria-current="page">Cos'è lo zefir</a></li>
-        <li><a href="gusti.html">Gusti</a></li>
-        <li><a href="galleria.html">Galleria</a></li>
-        <li><a href="conservazione.html">Conservazione</a></li>
-        <li><a href="contatti.html">Contatti</a></li>
-      </ul>
-    </nav>
   </header>
 
   <main>
     <section class="section container" aria-labelledby="titolo-zefir">
-      <h1 id="titolo-zefir" class="section-title">Cos'è lo zefir</h1>
+      <h1 id="titolo-zefir" class="section-title" data-i18n="zefir.title">Cos'è lo zefir</h1>
 
       <div class="info-box">
-        <img class="info-box-deco" src="images/logo-header.png" alt="" />
-        <p>Cos'è la fioristica di zefir? Il zefir è un dolce sofficissimo originario dell'Europa dell'Est, fatto con purea di frutta fatta in casa, albumina e agar-agar (adatto anche ai vegetariani), non gelatina: non è un marshmallow. Con questa nuvola commestibile nascono petali e fiori, uniti a mano, uno per uno, con amore, in piccoli bouquet dolci da ammirare e poi gustare. Niente conservanti, lattosio o glutine: solo ingredienti naturali. Si conserva 10-14 giorni in un luogo fresco e asciutto; con il tempo diventa solo leggermente più corposo, senza perdere bontà.</p>
+        <p data-i18n="zefir.info">Cos'è la fioristica di zefir? Il zefir è un dolce sofficissimo...</p>
       </div>
 
-      <div class="info-cta">
-        <a class="btn btn-primary" href="gusti.html">Scopri i gusti</a>
-        <a class="btn btn-secondary" href="conservazione.html">Come si conserva</a>
+      <div class="romantic-block" aria-label="Storia">
+        <p data-i18n="zefir.romantic">Ho sempre amato i fiori...</p>
+        <div class="florish" aria-hidden="true">~</div>
+      </div>
+
+      <div class="gift-block">
+        <h2 class="gift-block-title" data-i18n="zefir.gift_title">Perché un bouquet di zefir è un pensiero speciale</h2>
+        <p data-i18n="zefir.gift">Un bouquet di zefir è il piccolo gesto che parla da solo...</p>
+      </div>
+
+      <div class="conservation-block" id="conservazione">
+        <h2 class="section-title" data-i18n="zefir.conservation.title">Come si conserva</h2>
+        <div class="conservation-body" data-i18n="zefir.conservation.body">I fiori di zefir si conservano 10-14 giorni in un luogo fresco e asciutto...</div>
+        <ul class="tips">
+          <li data-i18n="zefir.conservation.tip1">Tienili lontano dalla luce diretta del sole.</li>
+          <li data-i18n="zefir.conservation.tip2">Evita ambienti umidi: la cucina dopo aver cucinato non è l'ideale.</li>
+          <li data-i18n="zefir.conservation.tip3">Non riporli in frigorifero: lo zefir è più felice fuori.</li>
+          <li data-i18n="zefir.conservation.tip4">Se devi regalarli, avvolgili in carta leggera, senza plastica.</li>
+        </ul>
       </div>
     </section>
   </main>
 
+  <nav class="bottom-nav" aria-label="Navigazione principale">
+    <div class="bottom-nav-inner">
+      <a href="index.html">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10 L12 3 L21 10 V20 a1 1 0 0 1 -1 1 H15 V14 H9 V21 H4 a1 1 0 0 1 -1 -1 Z"/></svg>
+        <span data-i18n="nav.home">Home</span>
+      </a>
+      <a href="chi-sono.html">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21 a8 8 0 0 1 16 0"/></svg>
+        <span data-i18n="nav.about">Chi sono</span>
+      </a>
+      <a href="cos-e-lo-zefir.html" aria-current="page">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><circle class="nav-icon-fill" cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="6"/><path d="M12 2 v3 M12 19 v3 M2 12 h3 M19 12 h3 M4.9 4.9 l2.1 2.1 M17 17 l2.1 2.1 M4.9 19.1 l2.1 -2.1 M17 7 l2.1 -2.1"/></svg>
+        <span data-i18n="nav.zefir">Cos'è lo zefir</span>
+      </a>
+      <a href="gusti.html">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><circle class="nav-icon-fill" cx="9" cy="9" r="4"/><circle class="nav-icon-fill" cx="16" cy="14" r="3"/><path d="M9 5 v4 M16 11 v3"/></svg>
+        <span data-i18n="nav.flavors">Gusti</span>
+      </a>
+      <a href="galleria.html">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="1.5" class="nav-icon-fill"/><path d="M21 17 L15 11 L9 17"/></svg>
+        <span data-i18n="nav.gallery">Galleria</span>
+      </a>
+      <a href="contatti.html">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 8 L12 14 L21 8"/></svg>
+        <span data-i18n="nav.contact">Contatti</span>
+      </a>
+    </div>
+  </nav>
+
   <footer class="site-footer">
-    <div>Zefiro di Oksi · un hobby fatto a mano, con cura</div>
-    <div class="small">© <span id="anno"></span> Zefiro di Oksi · Sito amatoriale, non un e-commerce</div>
+    <div>Zefiro di Oksi · <span data-i18n="footer.tagline">un hobby fatto a mano, con cura</span></div>
+    <div class="small">© <span id="anno"></span> Zefiro di Oksi · <span data-i18n="footer.disclaimer">Sito amatoriale, non un e-commerce</span></div>
   </footer>
 
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
   <script>document.getElementById('anno').textContent = new Date().getFullYear();</script>
 </body>
