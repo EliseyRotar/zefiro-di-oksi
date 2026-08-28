@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chi sono — Zefiro di Oksi</title>
-  <meta name="description" content="Oksana, in arte Oksi, racconta come è nato Zefiro di Oksi: dalla passione per la pasticceria ai fiori di zefir fatti a mano." />
+  <title data-i18n="meta.about.title">Chi sono — Zefiro di Oksi</title>
+  <meta name="description" content="Oksana, in arte Oksi, racconta come è nato Zefiro di Oksi." data-i18n-attr="content" data-i18n="meta.about.desc" />
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -19,47 +19,65 @@
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="Zefiro di Oksi, vai alla home">
         <img class="brand-logo" src="images/logo-header.png" alt="Zefiro di Oksi" />
-        <span>
+        <span class="brand-text">
           <span class="brand-name">Zefiro di Oksi</span>
-          <span class="brand-tag">fiori di zefir fatti a mano</span>
+          <span class="brand-tag" data-i18n="site.tagline">fiori di zefir fatti a mano</span>
         </span>
       </a>
-      <button class="nav-toggle" type="button"
-              aria-controls="primary-nav" aria-expanded="false"
-              aria-label="Apri il menu">
-        <span>Menu</span>
-      </button>
+      <div class="lang-switch" role="group" aria-label="Cambia lingua">
+        <button class="lang-btn" type="button" data-lang-switch="it" aria-label="Italiano"><img src="images/flags/it.svg" alt="IT" /></button>
+        <button class="lang-btn" type="button" data-lang-switch="ru" aria-label="Русский"><img src="images/flags/ru.svg" alt="RU" /></button>
+        <button class="lang-btn" type="button" data-lang-switch="en" aria-label="English"><img src="images/flags/en.svg" alt="EN" /></button>
+      </div>
     </div>
-    <nav id="primary-nav" class="nav" aria-label="Navigazione principale">
-      <ul class="nav-list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="chi-sono.html" aria-current="page">Chi sono</a></li>
-        <li><a href="cos-e-lo-zefir.html">Cos'è lo zefir</a></li>
-        <li><a href="gusti.html">Gusti</a></li>
-        <li><a href="galleria.html">Galleria</a></li>
-        <li><a href="conservazione.html">Conservazione</a></li>
-        <li><a href="contatti.html">Contatti</a></li>
-      </ul>
-    </nav>
   </header>
 
   <main>
     <section class="section container prose" aria-labelledby="titolo-chisono">
-      <img class="logo-hero" src="images/logo-pulito.png" alt="Zefiro di Oksi" />
-      <h1 id="titolo-chisono" class="section-title">Chi sono</h1>
-      <p>Mi chiamo Oksana, ma per gli amici sono semplicemente Oksi, ed è per questo che il mio piccolo mondo dolce si chiama Zefiro di Oksi. Da sempre amo il mondo della pasticceria: ho iniziato da bambina, guardando mia nonna, che era chef in un ristorante rinomato, e da allora non ho più smesso. Negli anni ho preparato torte, glasse a specchio, cheesecake e dolci al cioccolato, ma di recente ho scoperto una nuova passione: la fioristica di zefir, un dolce sofficissimo che non ha nulla a che vedere con il marshmallow. Sto ancora imparando, frequento una scuola dedicata e il diploma arriverà tra qualche mese, ma sono già felice di mostrarvi le mie prime piccole composizioni. Ogni fiore nasce da purea di frutta fatta in casa, completamente a mano, con albumina e agar-agar, un'alternativa sicura e naturale alla gelatina, adatta anche a chi è vegetariano: niente conservanti, lattosio o glutine. I gusti sono già tanti: mela, mela-lampone, ribes nero, pesca, un mirtillo selvatico un po' aspro, e presto arriveranno pera, melone e mango, la mia collezione cresce insieme a me. In ogni cestino amo unire fiori di gusti diversi, così ogni composizione è anche una piccola sorpresa da scoprire. È il mio hobby, coltivato con cura nel tempo libero, e ogni fiore che creo porta un pezzo del mio cuore.</p>
+      <h1 id="titolo-chisono" class="section-title" data-i18n="about.title">Chi sono</h1>
+      <p data-i18n="about.body">Mi chiamo Oksana...</p>
 
-      <p style="text-align:center; margin-top: 24px;">
-        <a class="btn btn-primary" href="contatti.html">Scrivimi</a>
-      </p>
+      <div class="about-family">
+        <p data-i18n="about.family">Voglio ringraziare con tutto il cuore la mia famiglia...</p>
+      </div>
     </section>
   </main>
 
+  <nav class="bottom-nav" aria-label="Navigazione principale">
+    <div class="bottom-nav-inner">
+      <a href="index.html">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10 L12 3 L21 10 V20 a1 1 0 0 1 -1 1 H15 V14 H9 V21 H4 a1 1 0 0 1 -1 -1 Z"/></svg>
+        <span data-i18n="nav.home">Home</span>
+      </a>
+      <a href="chi-sono.html" aria-current="page">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21 a8 8 0 0 1 16 0"/></svg>
+        <span data-i18n="nav.about">Chi sono</span>
+      </a>
+      <a href="cos-e-lo-zefir.html">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><circle class="nav-icon-fill" cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="6"/><path d="M12 2 v3 M12 19 v3 M2 12 h3 M19 12 h3 M4.9 4.9 l2.1 2.1 M17 17 l2.1 2.1 M4.9 19.1 l2.1 -2.1 M17 7 l2.1 -2.1"/></svg>
+        <span data-i18n="nav.zefir">Cos'è lo zefir</span>
+      </a>
+      <a href="gusti.html">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><circle class="nav-icon-fill" cx="9" cy="9" r="4"/><circle class="nav-icon-fill" cx="16" cy="14" r="3"/><path d="M9 5 v4 M16 11 v3"/></svg>
+        <span data-i18n="nav.flavors">Gusti</span>
+      </a>
+      <a href="galleria.html">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="1.5" class="nav-icon-fill"/><path d="M21 17 L15 11 L9 17"/></svg>
+        <span data-i18n="nav.gallery">Galleria</span>
+      </a>
+      <a href="contatti.html">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 8 L12 14 L21 8"/></svg>
+        <span data-i18n="nav.contact">Contatti</span>
+      </a>
+    </div>
+  </nav>
+
   <footer class="site-footer">
-    <div>Zefiro di Oksi · un hobby fatto a mano, con cura</div>
-    <div class="small">© <span id="anno"></span> Zefiro di Oksi · Sito amatoriale, non un e-commerce</div>
+    <div>Zefiro di Oksi · <span data-i18n="footer.tagline">un hobby fatto a mano, con cura</span></div>
+    <div class="small">© <span id="anno"></span> Zefiro di Oksi · <span data-i18n="footer.disclaimer">Sito amatoriale, non un e-commerce</span></div>
   </footer>
 
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
   <script>document.getElementById('anno').textContent = new Date().getFullYear();</script>
 </body>
