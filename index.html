@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="it">
 <!--
   =====================================================================
    ZEFIRO DI OKSI — struttura del sito e cosa sostituire manualmente
@@ -7,74 +8,59 @@
      Zefiro_di_Oksi/
      ├── index.html              Home
      ├── chi-sono.html           Chi sono (Oksana/Oksi)
-     ├── cos-e-lo-zefir.html     Cos'è lo zefir (box informativo)
-     ├── gusti.html              Gusti disponibili + "In arrivo"
+     ├── cos-e-lo-zefir.html     Cos'è lo zefir (box + romantico + regalo + conservazione)
+     ├── gusti.html              Lista dei gusti (sezione unica, no "disponibili/arrivo")
      ├── galleria.html           Griglia di foto dei bouquet
-     ├── conservazione.html      Come conservare i fiori di zefir
-     ├── contatti.html           Pulsante mailto
-     ├── css/
-     │   └── style.css           Foglio di stile unico, mobile-first
-     ├── js/
-     │   └── main.js             Toggle del menu mobile (no dipendenze)
+     ├── contatti.html           Solo testo mailto, nessuna CTA
+     ├── css/style.css           Foglio di stile unico, mobile-first
+     ├── js/i18n.js              Dizionario IT/RU/EN + auto-detect + persistenza
+     ├── js/main.js              Click handler per lo switch lingua
      └── images/
-         ├── logo-pulito.png     Logo "pulito" grande (900x444) usato in
-         │                        home, chi-sono, contatti
-         ├── logo-header.png     Stesso logo in versione piccola (320x174)
-         │                        usato nell'header di tutte le pagine
-         ├── favicon.svg         Rosa stilizzata per la scheda del browser
-         ├── bouquet-1.svg       Placeholder rosa
-         ├── bouquet-2.svg       Placeholder pesca
-         ├── bouquet-3.svg       Placeholder lilla
-         ├── bouquet-4.svg       Placeholder albicocca
-         ├── bouquet-5.svg       Placeholder mirtillo
-         └── bouquet-6.svg       Placeholder verde mela
+         ├── favicon.svg         Rosa stilizzata
+         ├── logo-pulito.png     Logo grande (home / chi-sono / contatti)
+         ├── logo-header.png     Logo piccolo (header)
+         ├── bouquet-1.svg … bouquet-6.svg   Placeholder foto
+         ├── qr-zefiro-di-oksi.svg / -512.png / -2048.png   QR code brandizzato
+         └── flags/
+             ├── it.svg          Bandierina italiana
+             ├── ru.svg          Bandierina russa
+             └── en.svg          Union Jack
+
+   MULTILINGUA
+     Lingua predefinita: italiano.
+     Rilevamento automatico: se navigator.language inizia con 'ru' -> RU,
+     altrimenti IT di default. La scelta viene salvata in localStorage
+     sotto la chiave 'zefiro-lang' e ripristinata al prossimo caricamento.
+     Cambio manuale: cliccare una delle bandierine in header (IT/RU/EN).
 
    DA SOSTITUIRE MANUALMENTE PRIMA DI PUBBLICARE
      1) FOTO REALI in /images/
-        - Sostituire bouquet-1.svg … bouquet-6.svg con foto reali
-          (consigliato: JPG 1200x1200, leggere, <300KB l'una).
-        - Mantenere gli stessi nomi di file (rinominare le foto reali
-          come bouquet-1.jpg, bouquet-2.jpg, …) e aggiornare di
-          conseguenza l'attributo src in index.html e galleria.html
-          (es. images/bouquet-1.svg → images/bouquet-1.jpg).
-        - Aggiornare gli alt test con una descrizione veritiera.
-        - Rimuovere la scritta "placeholder" dalle didascalie.
-
+        Sostituire bouquet-1.svg … bouquet-6.svg con foto reali
+        (rinominare in .jpg mantenendo il nome), aggiornare il src in
+        galleria.html (gli alt test in galleria.html usano gia'
+        data-i18n per la didascalia).
      2) EMAIL REALE
-        - In contatti.html: href="mailto:zefirodioksi@proton.me"
-          → sostituire con l'indirizzo email reale (anche il subject).
-        - Sostituire anche il testo visibile "zefirodioksi@proton.me".
+        In js/i18n.js, chiavi 'contact.email' per tutte e 3 le lingue
+        (it / ru / en): attualmente 'zefirodioksi@proton.me' (segnaposto).
+     3) QR CODE
+        images/qr-zefiro-di-oksi-2048.png e' il file pronto da stampare.
 
-     3) LOGO
-        - I file logo-pulito.png e logo-header.png derivano dal tuo
-          logo originale (logo.png). Hanno sfondo trasparente (PNG
-          con canale alpha), quindi si adattano a qualsiasi sfondo.
-          Se vuoi una versione con sfondo pieno, rigenera i due file
-          partendo da logo.png senza alpha.
-        - Il favicon attuale è una rosa stilizzata disegnata a mano:
-          se preferisci usare un estratto del tuo logo, sostituisci
-          images/favicon.svg con un PNG 64x64 della sola rosa.
-
-     4) (Opzionale) favicon: se serve un .ico per vecchi browser,
-        aggiungere images/favicon.ico e aggiornare il <link rel="icon">
-        in tutte le pagine.
-
-     NOTE
-     - Nessuna sezione "ordini" o carrello, per scelta: è un hobby.
-     - Il sito è statico: si può aprire aprendo index.html nel browser
-       oppure caricarlo su qualsiasi hosting statico (GitHub Pages,
-       Netlify, Vercel, un semplice FTP).
-  =====================================================================
+   COME TESTARE LO SWITCH LINGUA
+     1) Aprire il sito in incognito (localStorage vuoto): si vede in IT.
+     2) Cambiare la lingua del browser in russo o inglese e ricaricare:
+        la lingua segue quella del browser solo se localStorage e' vuoto.
+     3) Cambiare lingua dal selettore bandierine: la scelta resta in
+        localStorage 'zefiro-lang' e sovrascrive quella del browser.
+     4) Per testare pulito: localStorage.clear() in DevTools e ricarica.
+   =====================================================================
 -->
-<html lang="it">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zefiro di Oksi — Fiori di zefir fatti a mano</title>
-  <meta name="description" content="Zefiro di Oksi: fiori di zefir fatti a mano, con amore, gusto dopo gusto. Un piccolo progetto di fioristica di zefir." />
+  <title data-i18n="meta.home.title">Zefiro di Oksi — fiori di zefir fatti a mano</title>
+  <meta name="description" content="Zefiro di Oksi: fiori di zefir fatti a mano, con amore, gusto dopo gusto." data-i18n-attr="content" data-i18n="meta.home.desc" />
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
 
-  <!-- Font: serif elegante per i titoli + sans morbido per il testo -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -83,92 +69,113 @@
 </head>
 <body>
 
-  <!-- ===================== HEADER / NAV ===================== -->
+  <!-- ===================== HEADER ===================== -->
   <header class="site-header">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="Zefiro di Oksi, vai alla home">
         <img class="brand-logo" src="images/logo-header.png" alt="Zefiro di Oksi" />
-        <span>
+        <span class="brand-text">
           <span class="brand-name">Zefiro di Oksi</span>
-          <span class="brand-tag">fiori di zefir fatti a mano</span>
+          <span class="brand-tag" data-i18n="site.tagline">fiori di zefir fatti a mano</span>
         </span>
       </a>
-      <button class="nav-toggle" type="button"
-              aria-controls="primary-nav" aria-expanded="false"
-              aria-label="Apri il menu">
-        <span>Menu</span>
-      </button>
+
+      <div class="lang-switch" role="group" aria-label="Cambia lingua">
+        <button class="lang-btn" type="button" data-lang-switch="it" aria-label="Italiano">
+          <img src="images/flags/it.svg" alt="IT" />
+        </button>
+        <button class="lang-btn" type="button" data-lang-switch="ru" aria-label="Русский">
+          <img src="images/flags/ru.svg" alt="RU" />
+        </button>
+        <button class="lang-btn" type="button" data-lang-switch="en" aria-label="English">
+          <img src="images/flags/en.svg" alt="EN" />
+        </button>
+      </div>
     </div>
-    <nav id="primary-nav" class="nav" aria-label="Navigazione principale">
-      <ul class="nav-list">
-        <li><a href="index.html" aria-current="page">Home</a></li>
-        <li><a href="chi-sono.html">Chi sono</a></li>
-        <li><a href="cos-e-lo-zefir.html">Cos'è lo zefir</a></li>
-        <li><a href="gusti.html">Gusti</a></li>
-        <li><a href="galleria.html">Galleria</a></li>
-        <li><a href="conservazione.html">Conservazione</a></li>
-        <li><a href="contatti.html">Contatti</a></li>
-      </ul>
-    </nav>
   </header>
 
   <!-- ===================== HERO ===================== -->
   <main>
     <section class="hero container" aria-labelledby="titolo-home">
-      <img class="logo-hero" src="images/logo-pulito.png" alt="Zefiro di Oksi" />
       <h1 id="titolo-home" class="visually-hidden">Zefiro di Oksi</h1>
-      <p class="hero-tagline">Fiori di zefir fatti a mano, con amore, gusto dopo gusto.</p>
 
-      <p>Benvenuta, benvenuto: questo è il mio piccolo mondo dolce. Ogni fiore è una nuvola
-        commestibile, modellata a mano, nata da pura frutta. Scopri da dove viene questa
-        passione e che cosa c'è dentro ogni petalo.</p>
+      <img class="logo-hero" src="images/logo-pulito.png" alt="Zefiro di Oksi" />
 
-      <div class="hero-cta">
-        <a class="btn btn-primary" href="chi-sono.html">Chi sono</a>
-        <a class="btn btn-secondary" href="cos-e-lo-zefir.html">Cos'è lo zefir</a>
-      </div>
+      <p class="hero-welcome" data-i18n="home.welcome">Benvenuta, benvenuto. Questo è il mio piccolo mondo dolce.</p>
+      <p class="hero-tagline" data-i18n="home.tagline">Fiori di zefir fatti a mano, con amore, gusto dopo gusto.</p>
+
+      <a class="scroll-hint" href="#contenuto" aria-label="Scorri verso il contenuto">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 5 L12 19 M6 13 L12 19 L18 13"/>
+        </svg>
+        <span data-i18n="home.scroll">scorri</span>
+      </a>
     </section>
 
-    <img class="divider-deco" src="images/logo-header.png" alt="" aria-hidden="true" />
-
-    <!-- ===================== MINI ANTEPRIME ===================== -->
-    <section class="section container" aria-labelledby="anteprima-titolo">
-      <h2 id="anteprima-titolo" class="section-title">Un assaggio</h2>
-      <div class="gallery">
-        <a class="gallery-item" href="galleria.html" aria-label="Vai alla galleria completa">
-          <div class="gallery-img-wrap">
-            <img src="images/bouquet-1.svg" alt="Mini bouquet rosa (foto in arrivo)" />
-            <span class="placeholder-tag">foto in arrivo</span>
-          </div>
-          <div class="gallery-caption">Bouquet rosa</div>
-        </a>
-        <a class="gallery-item" href="galleria.html" aria-label="Vai alla galleria completa">
-          <div class="gallery-img-wrap">
-            <img src="images/bouquet-2.svg" alt="Mini bouquet pesca (foto in arrivo)" />
-            <span class="placeholder-tag">foto in arrivo</span>
-          </div>
-          <div class="gallery-caption">Bouquet pesca</div>
-        </a>
-        <a class="gallery-item" href="galleria.html" aria-label="Vai alla galleria completa">
-          <div class="gallery-img-wrap">
-            <img src="images/bouquet-3.svg" alt="Mini bouquet lilla (foto in arrivo)" />
-            <span class="placeholder-tag">foto in arrivo</span>
-          </div>
-          <div class="gallery-caption">Bouquet lilla</div>
-        </a>
-      </div>
-      <p style="text-align:center; margin-top:22px;">
-        <a class="btn btn-secondary" href="galleria.html">Guarda la galleria</a>
-      </p>
+    <!-- Ancora per la freccia. Il contenuto minimo sotto serve solo a giustificare la freccia -->
+    <section id="contenuto" class="container" style="padding-bottom: 16px;">
+      <h2 class="section-title visually-hidden" data-i18n="nav.home">Home</h2>
+      <p class="visually-hidden" data-i18n="home.welcome">Benvenuta, benvenuto. Questo è il mio piccolo mondo dolce.</p>
     </section>
   </main>
 
+  <!-- ===================== BOTTOM NAV ===================== -->
+  <nav class="bottom-nav" aria-label="Navigazione principale">
+    <div class="bottom-nav-inner">
+      <a href="index.html" aria-current="page">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 10 L12 3 L21 10 V20 a1 1 0 0 1 -1 1 H15 V14 H9 V21 H4 a1 1 0 0 1 -1 -1 Z"/>
+        </svg>
+        <span data-i18n="nav.home">Home</span>
+      </a>
+      <a href="chi-sono.html">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="8" r="4"/>
+          <path d="M4 21 a8 8 0 0 1 16 0"/>
+        </svg>
+        <span data-i18n="nav.about">Chi sono</span>
+      </a>
+      <a href="cos-e-lo-zefir.html">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle class="nav-icon-fill" cx="12" cy="12" r="3"/>
+          <circle cx="12" cy="12" r="6"/>
+          <path d="M12 2 v3 M12 19 v3 M2 12 h3 M19 12 h3 M4.9 4.9 l2.1 2.1 M17 17 l2.1 2.1 M4.9 19.1 l2.1 -2.1 M17 7 l2.1 -2.1"/>
+        </svg>
+        <span data-i18n="nav.zefir">Cos'è lo zefir</span>
+      </a>
+      <a href="gusti.html">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle class="nav-icon-fill" cx="9" cy="9" r="4"/>
+          <circle class="nav-icon-fill" cx="16" cy="14" r="3"/>
+          <path d="M9 5 v4 M16 11 v3"/>
+        </svg>
+        <span data-i18n="nav.flavors">Gusti</span>
+      </a>
+      <a href="galleria.html">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3" y="5" width="18" height="14" rx="2"/>
+          <circle cx="9" cy="11" r="1.5" class="nav-icon-fill"/>
+          <path d="M21 17 L15 11 L9 17"/>
+        </svg>
+        <span data-i18n="nav.gallery">Galleria</span>
+      </a>
+      <a href="contatti.html">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3" y="6" width="18" height="13" rx="2"/>
+          <path d="M3 8 L12 14 L21 8"/>
+        </svg>
+        <span data-i18n="nav.contact">Contatti</span>
+      </a>
+    </div>
+  </nav>
+
   <!-- ===================== FOOTER ===================== -->
   <footer class="site-footer">
-    <div>Zefiro di Oksi · un hobby fatto a mano, con cura</div>
-    <div class="small">© <span id="anno"></span> Zefiro di Oksi · Sito amatoriale, non un e-commerce</div>
+    <div>Zefiro di Oksi · <span data-i18n="footer.tagline">un hobby fatto a mano, con cura</span></div>
+    <div class="small">© <span id="anno"></span> Zefiro di Oksi · <span data-i18n="footer.disclaimer">Sito amatoriale, non un e-commerce</span></div>
   </footer>
 
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
   <script>document.getElementById('anno').textContent = new Date().getFullYear();</script>
 </body>
