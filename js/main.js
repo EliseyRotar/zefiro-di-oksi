@@ -1,8 +1,9 @@
 /* =========================================================
-   Zefiro di Oksi - script principale
-   Gestione del menu mobile (apri/chiudi) e del tasto Esc.
-   Pensato per essere semplice e robusto anche su vecchi
-   browser Android (no dipendenze).
+   Zefiro di Oksi - script principale (revisione v3)
+   Con i18n.js attivo, qui resta ben poco:
+   - lingua iniziale: i18n si auto-inizializza al caricamento
+   - lingua switcher: delega click su [data-lang-switch] a I18N.setLang
+   - persistenza in localStorage: gestita da i18n.js
    ========================================================= */
 
 (function () {
@@ -14,47 +15,23 @@
   }
 
   ready(function () {
-    var toggle = document.querySelector('.nav-toggle');
-    var list   = document.querySelector('.nav-list');
-    if (!toggle || !list) return;
-
-    function setOpen(open) {
-      list.classList.toggle('is-open', open);
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      toggle.setAttribute('aria-label', open ? 'Chiudi il menu' : 'Apri il menu');
-    }
-
-    // Stato iniziale coerente con l'HTML
-    setOpen(false);
-
-    toggle.addEventListener('click', function () {
-      var isOpen = list.classList.contains('is-open');
-      setOpen(!isOpen);
-    });
-
-    // Chiudi con Esc
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && list.classList.contains('is-open')) {
-        setOpen(false);
-        toggle.focus();
+    // Switch lingua: intercetta i click sui bottoni bandierina
+    document.addEventListener('click', function (e) {
+      const btn = e.target.closest('[data-lang-switch]');
+      if (!btn) return;
+      e.preventDefault();
+      const lang = btn.getAttribute('data-lang-switch');
+      if (lang && window.I18N) {
+        window.I18N.setLang(lang);
+        // Aggiorna anche il <title> meta per coerenza
+        const t = window.I18N.t('site.title');
+        if (t) document.title = t;
       }
     });
 
-    // Chiudi quando si clicca fuori (solo mobile)
-    document.addEventListener('click', function (e) {
-      if (!list.classList.contains('is-open')) return;
-      if (e.target === toggle || toggle.contains(e.target)) return;
-      if (list.contains(e.target)) return;
-      setOpen(false);
+    // Quando i18n cambia lingua, ri-applica data-i18n su tutta la pagina
+    document.addEventListener('zefiro:langchange', function () {
+      if (window.I18N) window.I18N.applyAll();
     });
-
-    // Su viewport >= 720px il menu è sempre aperto via CSS:
-    // se l'utente ridimensiona, assicuriamoci che lo stato resti coerente.
-    var mq = window.matchMedia('(min-width: 720px)');
-    function sync(e) {
-      if (e.matches) setOpen(false); // CSS forza la visibilità
-    }
-    if (mq.addEventListener) mq.addEventListener('change', sync);
-    else if (mq.addListener) mq.addListener(sync);
   });
 })();
