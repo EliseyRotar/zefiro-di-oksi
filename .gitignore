@@ -32,3 +32,8 @@ build/
 # File generati temporaneamente nella root (es. qrcode.png di prova)
 # Non rimuovere se hai un file con questo nome altrove.
 /qrcode.png
+
+# PNG QR ad altissima risoluzione usati solo per stampa in cartoleria
+# (rimangono locali, non servono nel deploy)
+/images/qr-zefiro-di-oksi-3000.png
+/images/qr-zefiro-di-oksi-3000-margins.png
