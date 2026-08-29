@@ -273,7 +273,8 @@ a:hover, a:focus { color: #946e7a; }
    HERO (home)
    ========================================================= */
 .hero {
-  padding: 36px 0 24px;
+  padding-top: 36px;
+  padding-bottom: 24px;
   text-align: center;
 }
 .logo-hero {
@@ -371,7 +372,7 @@ a:hover, a:focus { color: #946e7a; }
 /* =========================================================
    Sezioni + testo lungo
    ========================================================= */
-.section { padding: 28px 0; }
+.section { padding-top: 28px; padding-bottom: 28px; }
 .section + .section { padding-top: 4px; }
 
 .section-title {
@@ -763,12 +764,12 @@ a:hover, a:focus { color: #946e7a; }
     padding: 6px 0 8px;
   }
 
-  .hero { padding: 56px 0 36px; }
+  .hero { padding-top: 56px; padding-bottom: 36px; }
   .hero-welcome { font-size: 1.45rem; }
   .hero-tagline { font-size: 1.2rem; }
 
   .gallery { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-  .section { padding: 36px 0; }
+  .section { padding-top: 36px; padding-bottom: 36px; }
 }
 
 @media (min-width: 980px) {
@@ -892,7 +893,8 @@ a:hover, a:focus { color: #946e7a; }
     gap: 40px;
     align-items: center;
     text-align: left;
-    padding: 56px 0 40px;
+    padding-top: 56px;
+    padding-bottom: 40px;
   }
   .hero .hero-text-side {
     text-align: left;
