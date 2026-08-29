@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="it">
+<!--
+  Pagina admin di Zefiro di Oksi.
+  Protetta da password (hash SHA-256 lato client).
+  Mostra statistiche di analytics raccolte da js/analytics.js
+  e salvate nel localStorage del browser.
+
+  NOTA SICUREZZA: questa e' protezione onesta, non militare.
+  L'admin non e' "nascosto" - l'URL e' noto. La password e' l'unica barriera.
+  Non mettere dati sensibili reali qui dentro. E' un hobby, va bene cosi'.
+-->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Zefiro di Oksi</title>
+  <link rel="icon" type="image/png" href="images/favicon-rose.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body { background: var(--beige-carta); }
+    .adm-wrap { flex: 1; padding: 24px 22px 40px; max-width: 900px; width: 100%; margin: 0 auto; }
+    .adm-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 22px; }
+    .adm-header h1 { font-family: var(--serif); margin: 0; font-size: 1.6rem; }
+    .adm-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .adm-actions button {
+      font: inherit;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--bordo);
+      background: var(--beige-crema);
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .adm-actions button:hover { background: var(--beige-caldo); }
+    .adm-actions button.danger { color: #a14848; border-color: #e5b6b6; background: #fff0f0; }
+    .adm-login {
+      max-width: 360px;
+      margin: 60px auto;
+      background: var(--beige-crema);
+      border: 1px solid var(--bordo);
+      border-radius: var(--raggio);
+      padding: 28px 26px;
+      box-shadow: var(--ombra);
+      text-align: center;
+    }
+    .adm-login h2 { margin-top: 0; }
+    .adm-login p { color: var(--marrone-chiaro); font-size: 0.95rem; }
+    .adm-login input {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--bordo);
+      font: inherit;
+      background: var(--beige-carta);
+      margin-bottom: 12px;
+    }
+    .adm-login button.primary {
+      width: 100%;
+      background: var(--rosa-polveroso);
+      color: var(--testo);
+      border: 2px solid var(--rosa-scuro);
+      padding: 12px;
+      border-radius: 999px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .adm-login button.primary:hover { background: var(--rosa-polveroso-h); }
+    .adm-err { color: #a14848; font-size: 0.9rem; min-height: 1.2em; margin-top: 8px; }
+
+    .adm-card {
+      background: var(--beige-crema);
+      border: 1px solid var(--bordo);
+      border-radius: var(--raggio);
+      padding: 18px 20px;
+      box-shadow: var(--ombra);
+      margin-bottom: 18px;
+    }
+    .adm-card h2 { font-family: var(--serif); margin-top: 0; font-size: 1.2rem; }
+    .adm-card h3 { font-family: var(--serif); margin-top: 0; font-size: 1rem; }
+    .adm-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .adm-stat {
+      background: var(--beige-carta);
+      border: 1px solid var(--bordo);
+      border-radius: 12px;
+      padding: 12px 10px;
+      text-align: center;
+    }
+    .adm-stat-num { font-family: var(--serif); font-size: 1.8rem; line-height: 1; color: var(--rosa-scuro); }
+    .adm-stat-lbl { font-size: 0.78rem; color: var(--marrone-chiaro); margin-top: 4px; }
+    .adm-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+    .adm-table th, .adm-table td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--bordo); }
+    .adm-table th { background: var(--beige-caldo); font-weight: 700; color: var(--marrone); }
+    .adm-table tr:last-child td { border-bottom: 0; }
+    .adm-empty { color: var(--marrone-chiaro); font-style: italic; }
+    .adm-note { font-size: 0.85rem; color: var(--marrone-chiaro); margin-top: 10px; font-style: italic; }
+    .adm-link { color: var(--rosa-scuro); }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Zefiro di Oksi, vai alla home">
+        <img class="brand-logo" src="images/logo-header.png" alt="Zefiro di Oksi" />
+        <span class="brand-text">
+          <span class="brand-name">Zefiro di Oksi</span>
+          <span class="brand-tag">area admin</span>
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- LOGIN -->
+    <section id="adm-login" class="adm-login" hidden>
+      <h2>Area admin</h2>
+      <p>Inserisci la password per vedere le statistiche del sito.</p>
+      <input id="adm-pw" type="password" placeholder="Password" autocomplete="current-password" autofocus />
+      <button id="adm-btn" class="primary" type="button">Entra</button>
+      <p class="adm-err" id="adm-err"></p>
+      <p class="adm-note">Password di default: <code>zefiro2026</code> (cambiala dopo il primo accesso).</p>
+    </section>
+
+    <!-- PANNELLO STATISTICHE -->
+    <section id="adm-panel" class="adm-wrap" hidden>
+      <div class="adm-header">
+        <h1>Statistiche del sito</h1>
+        <div class="adm-actions">
+          <button id="adm-change-pw" type="button" title="Cambia password">Cambia password</button>
+          <button id="adm-export" type="button" title="Esporta JSON">Esporta dati</button>
+          <button id="adm-clear" type="button" class="danger" title="Cancella tutti i dati">Cancella tutto</button>
+          <button id="adm-logout" type="button" title="Esci">Esci</button>
+        </div>
+      </div>
+      <!-- Il contenuto viene iniettato da js/admin.js -->
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>Zefiro di Oksi · area admin</div>
+    <div class="small">Dati analytics salvati solo nel localStorage di questo browser · <a class="adm-link" href="index.html">torna al sito</a></div>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
