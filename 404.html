@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="it">
+<!--
+  Pagina 404 multilingua per Zefiro di Oksi.
+  Cloudflare Pages la serve automaticamente quando una URL non esiste.
+  Lo stile resta coerente con il resto del sito (palette, font, bottom-nav).
+-->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="meta.404.title">Pagina non trovata — Zefiro di Oksi</title>
+  <meta name="description" content="La pagina che cercavi non esiste o e' stata spostata." data-i18n-attr="content" data-i18n="meta.404.desc" />
+  <link rel="icon" type="image/png" href="images/favicon-rose.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .error-wrap {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px 22px 40px;
+      min-height: 60vh;
+    }
+    .error-code {
+      font-family: var(--serif);
+      font-size: 5.5rem;
+      line-height: 1;
+      color: var(--rosa-scuro);
+      margin: 0;
+      letter-spacing: -2px;
+    }
+    .error-rose {
+      width: 80px;
+      height: auto;
+      margin: 8px 0 4px;
+      opacity: 0.85;
+    }
+    .error-title {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      color: var(--marrone);
+      margin: 8px 0 6px;
+      font-style: italic;
+    }
+    .error-text {
+      font-size: 1rem;
+      color: var(--marrone-chiaro);
+      max-width: 36ch;
+      margin: 0 0 22px;
+      line-height: 1.55;
+    }
+    .error-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+      max-width: 280px;
+    }
+    .error-actions a {
+      display: block;
+      padding: 14px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      text-align: center;
+    }
+    .error-actions .primary {
+      background: var(--rosa-polveroso);
+      color: var(--testo);
+      border: 2px solid var(--rosa-scuro);
+    }
+    .error-actions .secondary {
+      background: var(--beige-crema);
+      color: var(--testo);
+      border: 2px solid var(--pesca-morbido);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Zefiro di Oksi, vai alla home">
+        <img class="brand-logo" src="images/logo-header.png" alt="Zefiro di Oksi" />
+        <span class="brand-text">
+          <span class="brand-name">Zefiro di Oksi</span>
+          <span class="brand-tag" data-i18n="site.tagline">fiori di zefir fatti a mano</span>
+        </span>
+      </a>
+      <div class="lang-switch" role="group" aria-label="Cambia lingua">
+        <button class="lang-btn" type="button" data-lang-switch="it" aria-label="Italiano"><img src="images/flags/it.svg" alt="IT" /></button>
+        <button class="lang-btn" type="button" data-lang-switch="ru" aria-label="Русский"><img src="images/flags/ru.svg" alt="RU" /></button>
+        <button class="lang-btn" type="button" data-lang-switch="en" aria-label="English"><img src="images/flags/en.svg" alt="EN" /></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="error-wrap">
+      <p class="error-code">404</p>
+      <img class="error-rose" src="images/rose.png" alt="" aria-hidden="true" />
+      <h1 class="error-title" data-i18n="error.title">Questa pagina non c'è</h1>
+      <p class="error-text" data-i18n="error.text">Forse il link è vecchio, o hai scritto l'indirizzo a mano. Non ti preoccupare: torna alla home e ripartiamo da lì.</p>
+      <div class="error-actions">
+        <a class="primary" href="index.html" data-i18n="error.cta_home">Torna alla home</a>
+        <a class="secondary" href="contatti.html" data-i18n="error.cta_contact">Scrivimi</a>
+      </div>
+    </div>
+  </main>
+
+  <nav class="bottom-nav" aria-label="Navigazione principale">
+    <div class="bottom-nav-inner">
+      <a href="index.html">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10 L12 3 L21 10 V20 a1 1 0 0 1 -1 1 H15 V14 H9 V21 H4 a1 1 0 0 1 -1 -1 Z"/></svg>
+        <span data-i18n="nav.home">Home</span>
+      </a>
+      <a href="chi-sono.html">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21 a8 8 0 0 1 16 0"/></svg>
+        <span data-i18n="nav.about">Chi sono</span>
+      </a>
+      <a href="cos-e-lo-zefir.html">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><circle class="nav-icon-fill" cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="6"/><path d="M12 2 v3 M12 19 v3 M2 12 h3 M19 12 h3 M4.9 4.9 l2.1 2.1 M17 17 l2.1 2.1 M4.9 19.1 l2.1 -2.1 M17 7 l2.1 -2.1"/></svg>
+        <span data-i18n="nav.zefir">Cos'è lo zefir</span>
+      </a>
+      <a href="gusti.html">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><circle class="nav-icon-fill" cx="9" cy="9" r="4"/><circle class="nav-icon-fill" cx="16" cy="14" r="3"/><path d="M9 5 v4 M16 11 v3"/></svg>
+        <span data-i18n="nav.flavors">Gusti</span>
+      </a>
+      <a href="galleria.html">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="1.5" class="nav-icon-fill"/><path d="M21 17 L15 11 L9 17"/></svg>
+        <span data-i18n="nav.gallery">Galleria</span>
+      </a>
+      <a href="contatti.html">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 8 L12 14 L21 8"/></svg>
+        <span data-i18n="nav.contact">Contatti</span>
+      </a>
+    </div>
+  </nav>
+
+  <footer class="site-footer">
+    <div>Zefiro di Oksi · <span data-i18n="footer.tagline">un hobby fatto a mano, con cura</span></div>
+    <div class="small">© <span id="anno"></span> Zefiro di Oksi · <span data-i18n="footer.disclaimer">Sito amatoriale, non un e-commerce</span></div>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/analytics.js"></script>
+  <script src="js/main.js"></script>
+  <script>document.getElementById('anno').textContent = new Date().getFullYear();</script>
+</body>
+</html>
