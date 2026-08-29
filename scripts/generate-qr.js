@@ -1,5 +1,6 @@
 // Genera il QR code SVG di Zefiro di Oksi con palette del brand
-// e overlay del fiorellino centrale (livello di error correction H = 30%)
+// e overlay di una rosa classica vista dall'alto al centro
+// (livello di error correction H = 30%).
 
 const QRCode = require('qrcode');
 const fs = require('fs');
@@ -9,11 +10,15 @@ const URL = 'https://zefiro-di-oksi.pages.dev';
 const OUT = path.join(__dirname, '..', 'images', 'qr-zefiro-di-oksi.svg');
 
 // Palette brand (vedi css/style.css :root)
-const DARK   = '#4a3a36';   // marrone caldo (testo)
-const LIGHT  = '#fbf3ec';   // beige chiaro (sfondo sito)
-const ACCENT = '#e8b4c4';   // rosa cipria
-const FRAME  = '#f6e8d8';   // beige cornice
-const STROKE = '#ecd9c2';   // bordo cornice
+const DARK    = '#4a3a36';   // marrone caldo (testo)
+const LIGHT   = '#fbf3ec';   // beige chiaro (sfondo sito)
+const ACCENT  = '#e8b4c4';   // rosa cipria
+const ACCENT_DARK = '#c98ea1'; // rosa cipria piu' carico
+const ACCENT_LIGHT = '#f3d2dd'; // rosa cipria chiaro
+const FRAME   = '#f6e8d8';   // beige cornice
+const STROKE  = '#ecd9c2';   // bordo cornice
+const LEAF    = '#94a87e';   // verde foglia
+const LEAF_DARK = '#7a8c5b'; // verde stelo
 
 (async () => {
   // Genera il QR come stringa SVG con palette brand
@@ -62,20 +67,74 @@ const STROKE = '#ecd9c2';   // bordo cornice
     }
   }
 
-  // Fiorellino centrale: riuso il favicon.svg del sito, scalato e centrato
-  const flowerSize = QR_SIZE * 0.22;  // 22% del QR: piccolo ma visibile
+  // Rosa classica vista dall'alto al centro.
+  // 3 anelli concentrici di petali + bocciolo centrale.
+  const flowerSize = QR_SIZE * 0.26;   // 26% del QR: la rosa e' il "soggetto"
   const flowerOffset = (TOTAL - flowerSize) / 2;
-  const flower = `<g transform="translate(${flowerOffset.toFixed(2)} ${flowerOffset.toFixed(2)})">
-    <!-- disco bianco di sfondo per staccare il fiore dal QR -->
-    <circle cx="${(flowerSize/2).toFixed(2)}" cy="${(flowerSize/2).toFixed(2)}" r="${(flowerSize/2).toFixed(2)}" fill="${LIGHT}" stroke="${ACCENT}" stroke-width="2"/>
-    <g transform="translate(${(flowerSize/2).toFixed(2)} ${(flowerSize/2).toFixed(2)}) scale(${(flowerSize/64).toFixed(4)})">
-      <g fill="${ACCENT}" stroke="#c98ea1" stroke-width="0.6">
-        <path d="M0,-12 C-7,-14 -14,-9 -14,-2 C-14,6 -7,12 0,12 C7,12 14,6 14,-2 C14,-9 7,-14 0,-12 Z"/>
-        <path d="M0,-8 C-4,-9 -8,-6 -8,-2 C-8,3 -4,7 0,7 C4,7 8,3 8,-2 C8,-6 4,-9 0,-8 Z" fill="#f3d2dd"/>
-        <path d="M0,-4 C-2,-5 -4,-3 -4,-1 C-4,2 -2,4 0,4 C2,4 4,2 4,-1 C4,-3 2,-5 0,-4 Z" fill="${LIGHT}"/>
+  const cx = flowerSize / 2;
+  const cy = flowerSize / 2;
+  // Scala per le unita' interne del disegno (raggio base ~30 unita')
+  const u = flowerSize / 64;
+
+  const rose = `<g transform="translate(${flowerOffset.toFixed(2)} ${flowerOffset.toFixed(2)})">
+    <!-- disco chiaro di sfondo per staccare la rosa dal QR -->
+    <circle cx="${cx.toFixed(2)}" cy="${cy.toFixed(2)}" r="${(flowerSize/2 - 1).toFixed(2)}"
+            fill="${LIGHT}" stroke="${ACCENT_DARK}" stroke-width="${(2*u).toFixed(2)}"/>
+
+    <g transform="translate(${cx.toFixed(2)} ${cy.toFixed(2)}) scale(${u.toFixed(4)})">
+      <!-- ANELLO ESTERNO: 6 petali rotondi, molto schiacciati (rosa vista dall'alto) -->
+      <g fill="${ACCENT}" stroke="${ACCENT_DARK}" stroke-width="0.5" stroke-linejoin="round">
+        ${(() => {
+          let out = '';
+          for (let i = 0; i < 6; i++) {
+            const rot = i * 60;
+            // petalo ovale largo e schiacciato (ellisse orizzontale)
+            out += `<ellipse cx="0" cy="-20" rx="14" ry="11" transform="rotate(${rot})"/>`;
+          }
+          return out;
+        })()}
       </g>
-      <line x1="0" y1="12" x2="0" y2="32" stroke="#7a8c5b" stroke-width="1.5"/>
-      <path d="M0,20 C-6,18 -8,22 -6,26 C-2,24 0,22 0,20 Z" fill="#94a87e" stroke="#7a8c5b" stroke-width="0.5"/>
+
+      <!-- ANELLO INTERMEDIO: 5 petali piu' scuri, intercalati (offset 30 gradi) -->
+      <g fill="${ACCENT_DARK}" stroke="${ACCENT_DARK}" stroke-width="0.5" stroke-linejoin="round">
+        ${(() => {
+          let out = '';
+          for (let i = 0; i < 5; i++) {
+            const rot = i * 72 + 30;
+            out += `<ellipse cx="0" cy="-13" rx="10" ry="8" transform="rotate(${rot})"/>`;
+          }
+          return out;
+        })()}
+      </g>
+
+      <!-- ANELLO INTERNO: 4 petali piccoli chiari, intercalati ancora (offset 45) -->
+      <g fill="${ACCENT_LIGHT}" stroke="${ACCENT_DARK}" stroke-width="0.4" stroke-linejoin="round">
+        ${(() => {
+          let out = '';
+          for (let i = 0; i < 4; i++) {
+            const rot = i * 90 + 45;
+            out += `<ellipse cx="0" cy="-7" rx="6" ry="5" transform="rotate(${rot})"/>`;
+          }
+          return out;
+        })()}
+      </g>
+
+      <!-- BOCCIOLO CENTRALE: piccolo cerchio + cuoricino stilizzato -->
+      <circle cx="0" cy="0" r="4" fill="${ACCENT_DARK}"/>
+      <path d="M -1.4,-1.4 C -1.4,-2.2 -0.5,-2.6 0,-2 C 0.5,-2.6 1.4,-2.2 1.4,-1.4 C 1.4,-0.4 0,0.6 0,0.6 C 0,0.6 -1.4,-0.4 -1.4,-1.4 Z"
+            fill="${ACCENT_LIGHT}" stroke="none"/>
+
+      <!-- FOGLIOLINE sotto la rosa, sporgenti dal disco di sfondo -->
+      <g transform="translate(-20 20) rotate(-30)">
+        <path d="M 0,0 C -3,-2 -6,0 -8,4 C -10,8 -8,11 -4,11 C 0,11 4,9 6,5 C 8,1 5,-2 0,0 Z"
+              fill="${LEAF}" stroke="${LEAF_DARK}" stroke-width="0.4"/>
+        <line x1="-6" y1="6" x2="2" y2="2" stroke="${LEAF_DARK}" stroke-width="0.4"/>
+      </g>
+      <g transform="translate(20 20) rotate(30)">
+        <path d="M 0,0 C 3,-2 6,0 8,4 C 10,8 8,11 4,11 C 0,11 -4,9 -6,5 C -8,1 -5,-2 0,0 Z"
+              fill="${LEAF}" stroke="${LEAF_DARK}" stroke-width="0.4"/>
+        <line x1="6" y1="6" x2="-2" y2="2" stroke="${LEAF_DARK}" stroke-width="0.4"/>
+      </g>
     </g>
   </g>`;
 
@@ -94,8 +153,8 @@ const STROKE = '#ecd9c2';   // bordo cornice
   <!-- QR modules (marrone caldo su beige chiaro) -->
   <g fill="${DARK}">${cells}</g>
 
-  <!-- fiorellino centrale -->
-  ${flower}
+  <!-- rosa classica al centro -->
+  ${rose}
 
   <!-- nome brand sotto -->
   <g font-family="'Cormorant Garamond', Georgia, serif" text-anchor="middle">
