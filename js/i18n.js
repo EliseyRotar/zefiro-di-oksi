@@ -28,6 +28,12 @@
       'meta.gallery.desc': 'Alcuni dei miei mini bouquet di fiori di zefir.',
       'meta.contact.title': 'Contatti — Zefiro di Oksi',
       'meta.contact.desc': 'Se ami i fiori, puoi scrivermi.',
+      'meta.404.title': 'Pagina non trovata — Zefiro di Oksi',
+      'meta.404.desc': 'La pagina che cercavi non esiste o è stata spostata.',
+      'error.title': 'Questa pagina non c\'è',
+      'error.text': 'Forse il link è vecchio, o hai scritto l\'indirizzo a mano. Non ti preoccupare: torna alla home e ripartiamo da lì.',
+      'error.cta_home': 'Torna alla home',
+      'error.cta_contact': 'Scrivimi',
 
       'lang.it.label': 'Italiano',
       'lang.ru.label': 'Russo',
@@ -43,6 +49,7 @@
       'home.welcome': 'Benvenuta, benvenuto. Questo è il mio piccolo mondo dolce.',
       'home.tagline': 'Fiori di zefir fatti a mano, con amore, gusto dopo gusto.',
       'home.scroll': 'scorri',
+      'home.image_alt': 'Foto di Oksi che tiene in mano un bouquet di zefir (in arrivo)',
 
       'about.title': 'Chi sono',
       'about.body': 'Mi chiamo Oksana, ma per gli amici sono semplicemente Oksi, ed è per questo che il mio piccolo mondo dolce si chiama Zefiro di Oksi. Da sempre amo il mondo della pasticceria: ho iniziato da bambina, guardando mia nonna, che era chef in un ristorante rinomato, e da allora non ho più smesso. Negli anni ho preparato torte, glasse a specchio, cheesecake e dolci al cioccolato, ma di recente ho scoperto una nuova passione: la fioristica di zefir, un dolce sofficissimo che non ha nulla a che vedere con il marshmallow. Sto ancora imparando, frequento una scuola dedicata e il diploma arriverà tra qualche mese, ma sono già felice di mostrarvi le mie prime piccole composizioni. Ogni fiore nasce da purea di frutta fatta in casa, completamente a mano, con albumina e agar-agar, un\'alternativa sicura e naturale alla gelatina, adatta anche a chi è vegetariano: niente conservanti, lattosio o glutine. I gusti sono già tanti: mela, mela-lampone, ribes nero, pesca, un mirtillo selvatico un po\' aspro, e presto arriveranno pera, melone e mango, la mia collezione cresce insieme a me. In ogni cestino amo unire fiori di gusti diversi, così ogni composizione è anche una piccola sorpresa da scoprire.',
@@ -55,10 +62,9 @@
       'zefir.gift_title': 'Perché un bouquet di zefir è un pensiero speciale',
       'zefir.conservation.title': 'Come si conserva',
       'zefir.conservation.body': 'I fiori di zefir si conservano 10-14 giorni in un luogo fresco e asciutto. Con il tempo diventano solo leggermente più corposi, senza perdere bontà.',
-      'zefir.conservation.tip1': 'Tienili lontano dalla luce diretta del sole.',
-      'zefir.conservation.tip2': 'Evita ambienti umidi: la cucina dopo aver cucinato non è l\'ideale.',
-      'zefir.conservation.tip3': 'Non riporli in frigorifero: lo zefir è più felice fuori.',
-      'zefir.conservation.tip4': 'Se devi regalarli, avvolgili in carta leggera, senza plastica.',
+      'zefir.conservation.tip1': 'Evita ambienti umidi: la cucina dopo aver cucinato non è l\'ideale.',
+      'zefir.conservation.tip2': 'Non riporli in frigorifero: lo zefir è più felice fuori.',
+      'zefir.conservation.tip3': 'Se devi regalarli, avvolgili in carta leggera, senza plastica.',
 
       'flavors.title': 'Gusti',
       'flavors.intro': 'Ogni bouquet nasce da ciò che ho in casa in quel momento: le puree che preparo, i frutti che scelgo con cura. Non accetto richieste su gusti specifici — preferisco che ogni composizione sia una piccola sorpresa. La mia collezione cresce insieme a me, gusto dopo gusto. Per ora ho imparato a lavorare bene con questi sapori:',
@@ -101,21 +107,27 @@
       'site.tagline': 'цветы из зефира ручной работы',
 
       'meta.home.title': 'Зефиро ди Окси — цветы из зефира ручной работы',
-      'meta.home.desc': 'Зефиро ди Окси: цветы из зефира, сделанные вручную, с любовью, вкус за вкусом.',
+      'meta.home.desc': 'Зефиро ди Окси: маленькие букеты из зефира, сделанные вручную, с любовью.',
       'meta.about.title': 'Обо мне — Зефиро ди Окси',
-      'meta.about.desc': 'Оксана, она же Окси, рассказывает, как родился проект Зефиро ди Окси.',
+      'meta.about.desc': 'Оксана, которую друзья зовут просто Окси, рассказывает, как родился проект «Зефиро ди Окси».',
       'meta.zefir.title': 'Что такое зефир — Зефиро ди Окси',
-      'meta.zefir.desc': 'Что такое зефирная флористика: нежнейший десерт ручной работы.',
+      'meta.zefir.desc': 'Зефирная флористика: воздушный десерт, из которого рождаются маленькие цветы.',
       'meta.flavors.title': 'Вкусы — Зефиро ди Окси',
-      'meta.flavors.desc': 'Вкусы цветов из зефира ручной работы.',
+      'meta.flavors.desc': 'Вкусы моих зефирных букетов.',
       'meta.gallery.title': 'Галерея — Зефиро ди Окси',
-      'meta.gallery.desc': 'Несколько моих мини-букетов из зефира.',
+      'meta.gallery.desc': 'Несколько моих маленьких зефирных букетов.',
       'meta.contact.title': 'Контакты — Зефиро ди Окси',
-      'meta.contact.desc': 'Если вы любите цветы, вы можете мне написать.',
+      'meta.contact.desc': 'Если вам близки цветы — напишите мне.',
+      'meta.404.title': 'Страница не найдена — Зефиро ди Окси',
+      'meta.404.desc': 'Страницы, которую вы искали, здесь нет.',
+      'error.title': 'Такой страницы нет',
+      'error.text': 'Возможно, ссылка устарела или адрес набран вручную. Не переживайте: вернитесь на главную, и начнём сначала.',
+      'error.cta_home': 'На главную',
+      'error.cta_contact': 'Написать мне',
 
-      'lang.it.label': 'Итальянский',
-      'lang.ru.label': 'Русский',
-      'lang.en.label': 'Английский',
+      'lang.it.label': 'итальянский',
+      'lang.ru.label': 'русский',
+      'lang.en.label': 'английский',
 
       'nav.home': 'Главная',
       'nav.about': 'Обо мне',
@@ -125,54 +137,54 @@
       'nav.contact': 'Контакты',
 
       'home.welcome': 'Добро пожаловать. Это мой маленький сладкий мир.',
-      'home.tagline': 'Цветы из зефира, сделанные вручную, с любовью, вкус за вкусом.',
-      'home.scroll': 'прокрутить',
+      'home.tagline': 'Цветы из зефира — ручная работа, вкус за вкусом, с любовью.',
+      'home.scroll': 'дальше',
+      'home.image_alt': 'Фото Окси с букетом из зефира в руках (скоро будет)',
 
       'about.title': 'Обо мне',
-      'about.body': 'Меня зовут Оксана, но для друзей я просто Окси — именно поэтому мой маленький сладкий мир называется «Зефиро ди Окси». Я всегда любила мир кондитерского дела: начала ещё ребёнком, наблюдая за бабушкой, которая была шеф-поваром в известном ресторане, — и с тех пор не останавливалась. За эти годы я готовила торты, зеркальную глазурь, чизкейки и шоколадные десерты, но недавно открыла для себя новое увлечение — зефирную флористику, нежнейший десерт, который не имеет ничего общего с маршмэллоу. Я всё ещё учусь, посещаю specialized школу, и диплом будет через несколько месяцев, но мне уже приятно показать вам мои первые небольшие композиции. Каждый цветок рождается из домашнего пюре из фруктов, полностью вручную, с альбумином и агар-агаром — безопасной и натуральной альтернативой желатину, которая подходит и вегетарианцам: без консервантов, лактозы и глютена. Вкусов уже много: яблоко, яблоко-малина, чёрная смородина, персик, чуть кисловая дикая черника, а скоро появятся груша, дыня и манго — моя коллекция растёт вместе со мной. В каждой корзинке я люблю сочетать цветы разных вкусов, так что каждая композиция становится маленьким сюрпризом, который предстоит открыть.',
-      'about.family': 'Хочу от всего сердца поблагодарить мою семью, которая всегда поддерживает меня в моих творческих начинаниях — и морально, и физически, каждый день.',
+      'about.body': 'Меня зовут Оксана, но для друзей я просто Окси — поэтому мой маленький сладкий мир зовётся «Зефиро ди Окси». Я с детства люблю кондитерское дело: всё началось с бабушки, которая была шеф-поваром в хорошем ресторане, — я смотрела на неё и не могла оторваться. С тех пор я перепробовала почти всё: торты, зеркальную глазурь, чизкейки, шоколадные десерты. А потом открыла для себя зефирную флористику — и это стало настоящей любовью. Зефир — это воздушный десерт, совсем не то же самое, что маршмэллоу. Я всё ещё учусь: хожу в специализированную школу, и диплом будет через несколько месяцев, но мне уже не терпится показать вам мои первые маленькие композиции. Каждый цветок рождается из домашнего фруктового пюре, полностью вручную, с яичным белком и агар-агаром — это натуральная альтернатива желатину, которая подходит и вегетарианцам: никаких консервантов, лактозы и глютена. Вкусов уже немало: яблоко, яблоко с малиной, чёрная смородина, персик, чуть терпкая лесная черника — а скоро добавится груша, дыня и манго. Моя коллекция растёт вместе со мной.',
+      'about.family': 'Хочу от всего сердца поблагодарить мою семью — она всегда поддерживает меня в том, что я делаю, и руками, и душой, каждый день.',
 
       'zefir.title': 'Что такое зефир',
-      'zefir.info': 'Что такое зефирная флористика? Зефир — это нежнейший десерт родом из Восточной Европы, приготовленный из домашнего фруктового пюре, альбумина и агар-агара (подходит и вегетарианцам), а не желатина: это не маршмэллоу. Из этого съедобного облака рождаются лепестки и цветы, собранные вручную, один за другим, с любовью, в маленькие сладкие букеты — ими можно любоваться, а потом наслаждаться ими на вкус. Без консервантов, лактозы и глютена: только натуральные ингредиенты. Хранится 10–14 дней в прохладном и сухом месте; со временем становится лишь чуть плотнее, не теряя вкуса.',
-      'zefir.romantic': 'Я всегда любила цветы. Мне не встречался человек, которому бы они не нравились: они приносят лёгкость, приносят улыбку, говорят то, что порой словами сказать не получается. У меня дома цветы есть всегда, даже зимой. Однажды я подумала: а что если цветок, помимо того что красив, можно ещё и съесть? Так родился цветочный зефир: съедобное облачко, которое превращается, лепесток за лепестком, в маленький букет. Чтобы создать цветок из зефира, мало уметь его готовить — нужен ещё взгляд художника, чтобы подобрать цвета, которые говорят друг с другом, и рука флориста, чтобы каждая композиция была гармоничной. Три ремесла в одном, чтобы подарить что-то сладенькое и глазам, и сердцу — раньше, чем нёбу.',
-      'zefir.gift': 'Букет из зефира — это маленький жест, который говорит сам за себя: на день рождения, для предложения, для тех, кто любит цветы, для тех, кто любит сладости, для тех, кто любит и то, и другое. Сказать «спасибо», сказать «я думаю о тебе», просто сказать «для тебя». Повод не нужен: иногда самые красивые мысли приходят без причины.',
+      'zefir.info': 'Что такое зефирная флористика? Зефир — воздушный десерт родом из Восточной Европы. Его делают из домашнего фруктового пюре, яичного белка и агар-агара (подходит вегетарианцам) — никакого желатина: это не маршмэллоу. Из этого съедобного облака рождаются лепестки и цветы, собранные вручную, один за другим, с любовью, — маленькие сладкие букеты, которые сначала хочется разглядывать, а потом и съесть. Без консервантов, без лактозы, без глютена — только натуральные ингредиенты. Хранится 10–14 дней в прохладном сухом месте; со временем становится чуть плотнее, но вкус остаётся прежним.',
+      'zefir.romantic': 'Я всегда любила цветы. Мне не встречался человек, которому бы они не нравились: они дарят лёгкость, дарят улыбку, говорят то, что словами сказать не получается. У меня дома цветы есть всегда — даже зимой. Однажды я подумала: а что, если цветок, помимо того что красив, можно ещё и съесть? Так родился цветочный зефир — съедобное облачко, которое превращается, лепесток за лепестком, в маленький букет. Чтобы сделать цветок из зефира, мало просто уметь его готовить: нужен ещё взгляд художника — подобрать цвета, которые будут разговаривать друг с другом — и рука флориста, чтобы вся композиция звучала гармонично. Три ремесла в одном — чтобы подарить что-то сладенькое и глазам, и сердцу, прежде чем нёбу.',
+      'zefir.gift': 'Букет из зефира — это маленький жест, который говорит сам за себя: на день рождения, для предложения, для тех, кто любит цветы, для тех, кто любит сладости, для тех, кто любит и то и другое. Сказать «спасибо», сказать «я о тебе думаю», просто сказать «это для тебя». Повод не нужен: иногда самые красивые мысли приходят без повода.',
       'zefir.gift_title': 'Почему букет из зефира — особенный подарок',
       'zefir.conservation.title': 'Как хранить',
-      'zefir.conservation.body': 'Цветы из зефира хранятся 10–14 дней в прохладном и сухом месте. Со временем они становятся лишь чуть плотнее, не теряя вкуса.',
-      'zefir.conservation.tip1': 'Держите их подальше от прямых солнечных лучей.',
-      'zefir.conservation.tip2': 'Избегайте влажных мест: кухня после готовки — не лучшее место.',
-      'zefir.conservation.tip3': 'Не убирайте их в холодильник: зефир счастливее вне его.',
-      'zefir.conservation.tip4': 'Если хотите подарить — оберните в тонкую бумагу, без пластика.',
+      'zefir.conservation.body': 'Зефирные цветы хранятся 10–14 дней в прохладном сухом месте. Со временем они становятся чуть плотнее, но вкус остаётся прежним.',
+      'zefir.conservation.tip1': 'Избегайте влажных мест: кухня после готовки — не лучшее место.',
+      'zefir.conservation.tip2': 'Не убирайте их в холодильник: зефир счастливее вне его.',
+      'zefir.conservation.tip3': 'Если хотите подарить — оберните в тонкую бумагу, без пластика.',
 
       'flavors.title': 'Вкусы',
-      'flavors.intro': 'Каждый букет рождается из того, что есть у меня дома в данный момент: пюре, которые я готовлю, фрукты, которые я выбираю с заботой. Я не принимаю заказов на конкретные вкусы — мне нравится, когда каждая композиция становится маленьким сюрпризом. Моя коллекция растёт вместе со мной, вкус за вкусом. Пока я научилась хорошо работать с этими вкусами:',
+      'flavors.intro': 'Каждый букет рождается из того, что есть у меня дома в данный момент: пюре, которое я приготовила, фрукты, которые я выбрала с заботой. Я не беру заказов на конкретные вкусы — мне нравится, когда каждая композиция становится маленьким сюрпризом. Моя коллекция растёт вместе со мной, вкус за вкусом. Пока я хорошо освоила вот эти вкусы:',
       'flavors.mela': 'Яблоко',
-      'flavors.mela.desc': 'Сладкое, нежное, обволакивающее: первый цветок, который я научилась делать.',
+      'flavors.mela.desc': 'Нежное, мягкое, обволакивающее — первый цветок, который я научилась делать.',
       'flavors.mela_lampone': 'Яблоко и малина',
       'flavors.mela_lampone.desc': 'Мягкость яблока встречается с живой ноткой малины.',
       'flavors.ribes': 'Чёрная смородина',
-      'flavors.ribes.desc': 'Насыщенный, глубокий, тёмного цвета: для тех, кто любит решительные вкусы.',
+      'flavors.ribes.desc': 'Насыщенный, глубокий, тёмного цвета — для тех, кто любит решительные вкусы.',
       'flavors.pesca': 'Персик',
       'flavors.pesca.desc': 'Мягкий и ароматный, пахнет концом лета.',
-      'flavors.mirtillo': 'Дикая черника',
-      'flavors.mirtillo.desc': 'Чуть кисловатая, как в лесу: любимая теми, кто ищет характер.',
-      'flavors.soon': 'Скоро: груша, дыня, манго. Я ещё изучаю их пюре, но они появятся.',
-      'flavors.surprise': 'В каждой корзинке я люблю сочетать цветы разных вкусов, так что каждая композиция становится маленьким сюрпризом, который предстоит открыть.',
+      'flavors.mirtillo': 'Лесная черника',
+      'flavors.mirtillo.desc': 'Чуть терпкая, как в лесу, — для тех, кто ищет характер.',
+      'flavors.soon': 'Скоро будут: груша, дыня, манго. Я ещё изучаю их пюре, но они появятся.',
+      'flavors.surprise': 'В каждой корзинке я люблю сочетать цветы разных вкусов — так каждая композиция становится маленьким сюрпризом, который предстоит открыть.',
 
       'gallery.title': 'Галерея',
-      'gallery.intro': 'Несколько моих композиций. Каждая фотография — повод рассказать о цветке.',
+      'gallery.intro': 'Несколько моих композиций. Каждая фотография — повод рассказать историю одного цветка.',
       'gallery.cap.placeholder': 'фото скоро',
-      'gallery.cap.bouquet': 'Мини-букет',
-      'gallery.cap.mela': 'Мини-букет — яблоко',
-      'gallery.cap.mela_lampone': 'Мини-букет — яблоко и малина',
-      'gallery.cap.ribes': 'Мини-букет — чёрная смородина',
-      'gallery.cap.pesca': 'Мини-букет — персик',
-      'gallery.cap.mirtillo': 'Мини-букет — дикая черника',
-      'gallery.cap.pera': 'Мини-букет — груша',
-      'gallery.cap.default': 'Мини-букет',
+      'gallery.cap.bouquet': 'Маленький букет',
+      'gallery.cap.mela': 'Маленький букет — яблоко',
+      'gallery.cap.mela_lampone': 'Маленький букет — яблоко и малина',
+      'gallery.cap.ribes': 'Маленький букет — чёрная смородина',
+      'gallery.cap.pesca': 'Маленький букет — персик',
+      'gallery.cap.mirtillo': 'Маленький букет — лесная черника',
+      'gallery.cap.pera': 'Маленький букет — груша',
+      'gallery.cap.default': 'Маленький букет',
 
       'contact.title': 'Маленькая мысль',
-      'contact.body': 'Это моё хобби, рождённое, чтобы делиться чем-то красивым с теми, кто рядом. Если и вы любите цветы — настоящие или те, что можно съесть — и хотите узнать больше, вы можете мне написать.',
+      'contact.body': 'Это моё хобби, и оно родилось, чтобы делиться чем-то красивым с теми, кто рядом. Если вам тоже близки цветы — настоящие или те, что можно съесть — и хочется узнать больше, напишите мне.',
       'contact.email': 'zefirodioksi@proton.me',
       'contact.note': 'Никакого магазина, никакой корзины: только жесты, сделанные вручную, в свободное время.',
 
@@ -196,6 +208,12 @@
       'meta.gallery.desc': 'A few of my mini zefir bouquets.',
       'meta.contact.title': 'Contact — Zefiro di Oksi',
       'meta.contact.desc': 'If you love flowers, you can write to me.',
+      'meta.404.title': 'Page not found — Zefiro di Oksi',
+      'meta.404.desc': 'The page you are looking for does not exist or has been moved.',
+      'error.title': 'This page does not exist',
+      'error.text': 'Maybe the link is old, or the address was typed by hand. Do not worry: go back to the home and we will start over from there.',
+      'error.cta_home': 'Back to home',
+      'error.cta_contact': 'Write to me',
 
       'lang.it.label': 'Italian',
       'lang.ru.label': 'Russian',
@@ -211,6 +229,7 @@
       'home.welcome': 'Welcome. This is my little sweet world.',
       'home.tagline': 'Handmade zefir flowers, with love, flavor after flavor.',
       'home.scroll': 'scroll',
+      'home.image_alt': 'Photo of Oksi holding a zefir bouquet (coming soon)',
 
       'about.title': 'About me',
       'about.body': 'My name is Oksana, but to my friends I am simply Oksi — that is why my little sweet world is called Zefiro di Oksi. I have always loved the world of pastry: I started as a child, watching my grandmother, who was a chef in a renowned restaurant, and I have never stopped since. Over the years I have made cakes, mirror glazes, cheesecakes and chocolate desserts, but recently I discovered a new passion: zefir floristry, a cloud-like sweet that has nothing to do with marshmallows. I am still learning, I attend a dedicated school and my diploma will come in a few months, but I am already happy to show you my first little compositions. Every flower is born from homemade fruit purée, completely by hand, with egg white and agar-agar — a safe and natural alternative to gelatine, also suitable for vegetarians: no preservatives, no lactose, no gluten. There are already many flavors: apple, apple-raspberry, blackcurrant, peach, a slightly tart wild blueberry, and soon pear, melon and mango will arrive, my collection growing along with me. In every little basket I like to combine flowers of different flavors, so that each composition is also a small surprise to discover.',
@@ -223,10 +242,9 @@
       'zefir.gift_title': 'Why a zefir bouquet is a special thought',
       'zefir.conservation.title': 'How to store',
       'zefir.conservation.body': 'Zefir flowers keep for 10–14 days in a cool, dry place. With time they only become slightly denser, without losing their flavor.',
-      'zefir.conservation.tip1': 'Keep them away from direct sunlight.',
-      'zefir.conservation.tip2': 'Avoid humid places: a kitchen right after cooking is not ideal.',
-      'zefir.conservation.tip3': 'Do not store them in the fridge: zefir is happier outside it.',
-      'zefir.conservation.tip4': 'If you want to gift them, wrap them in light paper, without plastic.',
+      'zefir.conservation.tip1': 'Avoid humid places: a kitchen right after cooking is not ideal.',
+      'zefir.conservation.tip2': 'Do not store them in the fridge: zefir is happier outside it.',
+      'zefir.conservation.tip3': 'If you want to gift them, wrap them in light paper, without plastic.',
 
       'flavors.title': 'Flavors',
       'flavors.intro': 'Every bouquet is born from what I have at home in that moment: the purées I prepare, the fruits I choose with care. I do not accept requests for specific flavors — I prefer each composition to be a small surprise. My collection grows along with me, flavor after flavor. For now I have learned to work well with these flavors:',
@@ -277,10 +295,29 @@
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved && SUPPORTED.includes(saved)) return saved;
     } catch (_) {}
-    const nav = (navigator.language || navigator.userLanguage || 'it').toLowerCase();
-    if (nav.startsWith('ru')) return 'ru';
-    if (nav.startsWith('en')) return 'en';
-    return 'it';
+
+    // navigator.languages e' un array ordinato per preferenza
+    // (es. ["ru-RU", "en-US", "it-IT"]).
+    // Cerchiamo la prima lingua supportata nella lista.
+    let prefs = [];
+    try {
+      if (Array.isArray(navigator.languages) && navigator.languages.length) {
+        prefs = navigator.languages;
+      } else if (navigator.language) {
+        prefs = [navigator.language];
+      } else if (navigator.userLanguage) {
+        prefs = [navigator.userLanguage];
+      }
+    } catch (_) {}
+
+    for (const raw of prefs) {
+      const code = String(raw || '').toLowerCase();
+      if (code.startsWith('it')) return 'it';
+      if (code.startsWith('ru')) return 'ru';
+      if (code.startsWith('en')) return 'en';
+    }
+    // Fallback per qualsiasi altra lingua (fr, de, es, ...): inglese
+    return 'en';
   }
 
   let current = detectInitial();
