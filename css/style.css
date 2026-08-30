@@ -214,8 +214,8 @@ a:hover, a:focus { color: #946e7a; }
 }
 .bottom-nav-inner {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  max-width: 600px;
+  grid-template-columns: repeat(5, 1fr);
+  max-width: 640px;
   margin: 0 auto;
   padding: 4px 0 6px;
 }
@@ -1053,17 +1053,38 @@ a:hover, a:focus { color: #946e7a; }
   text-align: center;
   max-width: 640px;
 }
-.lightbox-desc {
-  margin: 0 0 6px;
-  font-size: 1rem;
-  line-height: 1.55;
-}
 .lightbox-counter {
   margin: 0;
   font-size: .85rem;
   color: #f3d2dd;
   letter-spacing: .3px;
 }
+
+/* Bottone "vedi interno" / "torna alla torta intera" */
+.lightbox-slice {
+  font: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 10px 22px;
+  margin: 0 0 8px;
+  border-radius: 999px;
+  border: 0;
+  background: var(--rosa-polveroso, #d9b8be);
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: .3px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(120, 80, 80, .25);
+  transition: background-color .15s ease, transform .15s ease;
+}
+.lightbox-slice:hover { background: var(--rosa-scuro, #b8969e); }
+.lightbox-slice:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+.lightbox-slice[hidden] { display: none; }
 
 .lightbox-close, .lightbox-prev, .lightbox-next {
   position: absolute;

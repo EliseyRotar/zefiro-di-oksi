@@ -2,8 +2,9 @@
    Zefiro di Oksi - galleria UI
    - Render griglia filtrata
    - Lightbox accessibile (keyboard + swipe)
-   - Filtri per categoria
-   - Lazy-loading immagini
+   - 2 filtri (Tutte / Zefir) come richiesto
+   - Sistema tagli correlati: "vedi l'interno" / "torna alla torta intera"
+   - Descrizione rimossa (non serve)
    ========================================================= */
 
 (function (global) {
@@ -14,16 +15,17 @@
   const countEl = document.getElementById('gallery-count');
   const lb      = document.getElementById('lightbox');
   const lbImg   = document.getElementById('lightbox-img');
-  const lbDesc  = document.getElementById('lightbox-desc');
+  const lbSlice = document.getElementById('lightbox-slice');
   const lbCount = document.getElementById('lightbox-counter');
   const lbClose = document.getElementById('lightbox-close');
   const lbPrev  = document.getElementById('lightbox-prev');
   const lbNext  = document.getElementById('lightbox-next');
-  const filters = Array.from(document.querySelectorAll('.filter-btn'));
+  const filtersHost = document.querySelector('.gallery-filters');
 
   let currentFilter = 'all';
-  let currentList = [];
-  let currentIndex = 0;
+  let currentList = [];      // lista di items visibili (filtrata)
+  let currentIndex = 0;      // indice in currentList
+  let currentItem = null;     // item aperto nel lightbox (= currentList[currentIndex])
   let lastFocus = null;
 
   /* ---------- helpers ---------- */
@@ -36,34 +38,50 @@
 
   function getLang() { return (global.I18N && global.I18N.getLang()) || 'it'; }
 
-  function descFor(item) {
-    const lang = getLang();
-    const d = item.desc || {};
-    return d[lang] || d.it || '';
+  /* ---------- filtri ---------- */
+
+  function renderFilters() {
+    filtersHost.innerHTML = '';
+    const list = (global.GALLERY && global.GALLERY.FILTERS) || [
+      { id: 'all', labelKey: 'gallery.filter.all' },
+      { id: 'zefir', labelKey: 'gallery.filter.zefir' },
+    ];
+    list.forEach((f, i) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'filter-btn' + (f.id === currentFilter ? ' is-active' : '');
+      b.dataset.filter = f.id;
+      b.setAttribute('aria-pressed', f.id === currentFilter ? 'true' : 'false');
+      b.textContent = t(f.labelKey);
+      b.addEventListener('click', () => applyFilter(f.id));
+      filtersHost.appendChild(b);
+    });
   }
 
   /* ---------- render griglia ---------- */
 
   function render() {
-    const list = global.GALLERY.getByCategory(currentFilter);
-    currentList = list;
+    currentList = (global.GALLERY.visibleItems
+      ? global.GALLERY.visibleItems(currentFilter)
+      : (global.GALLERY.getByCategory(currentFilter) || []));
     grid.innerHTML = '';
 
-    if (!list.length) {
+    if (!currentList.length) {
       empty.hidden = false;
       countEl.textContent = '';
       return;
     }
     empty.hidden = true;
-    countEl.textContent = t('gallery.filter.count', { n: String(list.length) });
+    countEl.textContent = t('gallery.filter.count', { n: String(currentList.length) });
 
     const frag = document.createDocumentFragment();
-    list.forEach((it, idx) => {
+    currentList.forEach((it, idx) => {
       const btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'gallery-item';
       btn.setAttribute('role', 'listitem');
       btn.dataset.idx = String(idx);
+      btn.dataset.file = it.file;
       btn.setAttribute('aria-label', it.alt);
 
       const img = document.createElement('img');
@@ -73,13 +91,7 @@
       img.alt = it.alt;
       img.className = 'gallery-thumb';
 
-      const cat = document.createElement('span');
-      cat.className = 'gallery-cat-badge gallery-cat-' + it.cat;
-      cat.textContent = t('gallery.filter.' + it.cat);
-      cat.setAttribute('aria-hidden', 'true');
-
       btn.appendChild(img);
-      btn.appendChild(cat);
       btn.addEventListener('click', () => openAt(idx));
       frag.appendChild(btn);
     });
@@ -88,23 +100,16 @@
 
   function applyFilter(cat) {
     currentFilter = cat;
-    filters.forEach(b => {
-      const on = b.dataset.filter === cat;
-      b.classList.toggle('is-active', on);
-      b.setAttribute('aria-pressed', on ? 'true' : 'false');
-    });
+    renderFilters();
     render();
   }
-
-  filters.forEach(b => {
-    b.addEventListener('click', () => applyFilter(b.dataset.filter));
-  });
 
   /* ---------- lightbox ---------- */
 
   function openAt(idx) {
     if (!currentList.length) return;
-    currentIndex = (idx + currentList.length) % currentList.length;
+    currentIndex = ((idx % currentList.length) + currentList.length) % currentList.length;
+    currentItem = currentList[currentIndex];
     lastFocus = document.activeElement;
     showLightbox();
     lb.setAttribute('aria-hidden', 'false');
@@ -119,11 +124,38 @@
   }
 
   function showLightbox() {
-    const it = currentList[currentIndex];
-    if (!it) return;
-    lbImg.src = 'images/' + it.file;
-    lbImg.alt = it.alt;
-    lbDesc.textContent = descFor(it);
+    currentItem = currentList[currentIndex];
+    if (!currentItem) return;
+    lbImg.src = 'images/' + currentItem.file;
+    lbImg.alt = currentItem.alt;
+
+    // bottone taglio correlato
+    const BY = global.GALLERY.BY_FILE || {};
+    if (currentItem.slice) {
+      const sliceItem = BY[currentItem.slice];
+      if (sliceItem) {
+        lbSlice.hidden = false;
+        lbSlice.textContent = t('gallery.see_inside');
+        lbSlice.dataset.mode = 'open-slice';
+        lbSlice.dataset.sliceFile = currentItem.slice;
+      } else {
+        lbSlice.hidden = true;
+      }
+    } else if (currentItem.hidden) {
+      // siamo su una foto-slice, offri "torna alla torta intera"
+      const parent = findParent(currentItem.file);
+      if (parent) {
+        lbSlice.hidden = false;
+        lbSlice.textContent = t('gallery.see_outside');
+        lbSlice.dataset.mode = 'open-parent';
+        lbSlice.dataset.parentFile = parent.file;
+      } else {
+        lbSlice.hidden = true;
+      }
+    } else {
+      lbSlice.hidden = true;
+    }
+
     lbCount.textContent = t('gallery.counter', {
       current: String(currentIndex + 1),
       total: String(currentList.length)
@@ -133,11 +165,48 @@
     lbClose.setAttribute('aria-label', t('gallery.close'));
   }
 
+  function findParent(sliceFile) {
+    const ITEMS = global.GALLERY.ITEMS || [];
+    return ITEMS.find(it => it.slice === sliceFile) || null;
+  }
+
   function step(delta) {
     if (!currentList.length) return;
     currentIndex = (currentIndex + delta + currentList.length) % currentList.length;
     showLightbox();
   }
+
+  lbSlice.addEventListener('click', () => {
+    const mode = lbSlice.dataset.mode;
+    if (mode === 'open-slice') {
+      // naviga alla slice (anche se e' hidden nella galleria, la mostriamo solo qui)
+      const sliceFile = lbSlice.dataset.sliceFile;
+      const BY = global.GALLERY.BY_FILE || {};
+      const sliceItem = BY[sliceFile];
+      if (!sliceItem) return;
+      currentItem = sliceItem;
+      // mostra: niente cambio di currentList (navighiamo dentro la stessa galleria),
+      // ma l'index lo gestiamo separatamente via findByFile
+      const idx = currentList.findIndex(it => it.file === sliceFile);
+      if (idx >= 0) {
+        currentIndex = idx;
+      } else {
+        // slice non in currentList (perche' hidden): la mostriamo come "extra"
+        // Creiamo un riferimento temporaneo aggiungendolo alla lista
+        currentList.push(sliceItem);
+        currentIndex = currentList.length - 1;
+      }
+      showLightbox();
+    } else if (mode === 'open-parent') {
+      const parentFile = lbSlice.dataset.parentFile;
+      const idx = currentList.findIndex(it => it.file === parentFile);
+      if (idx >= 0) {
+        currentIndex = idx;
+        currentItem = currentList[idx];
+        showLightbox();
+      }
+    }
+  });
 
   lbClose.addEventListener('click', closeLightbox);
   lbPrev.addEventListener('click', () => step(-1));
@@ -153,9 +222,9 @@
     else if (e.key === 'ArrowLeft') { step(-1); e.preventDefault(); }
     else if (e.key === 'ArrowRight') { step(+1); e.preventDefault(); }
     else if (e.key === 'Tab') {
-      // intrappola focus dentro lightbox
-      const focusables = [lbClose, lbPrev, lbNext];
+      const focusables = [lbClose, lbPrev, lbNext, lbSlice].filter(el => el && !el.hidden);
       const i = focusables.indexOf(document.activeElement);
+      if (focusables.length === 0) return;
       if (e.shiftKey && i <= 0) { focusables[focusables.length - 1].focus(); e.preventDefault(); }
       else if (!e.shiftKey && i === focusables.length - 1) { focusables[0].focus(); e.preventDefault(); }
     }
@@ -174,23 +243,19 @@
   /* ---------- lingua ---------- */
 
   document.addEventListener('zefiro:langchange', () => {
-    // aggiorna testi UI senza ricreare la griglia
     if (lb.getAttribute('aria-hidden') === 'false') showLightbox();
     countEl.textContent = currentList.length
       ? t('gallery.filter.count', { n: String(currentList.length) })
       : '';
-    filters.forEach(b => { b.textContent = t('gallery.filter.' + b.dataset.filter); });
-    document.querySelectorAll('.gallery-cat-badge').forEach(el => {
-      const it = currentList[Number(el.parentElement.dataset.idx)];
-      if (it) el.textContent = t('gallery.filter.' + it.cat);
-    });
+    renderFilters();
   });
 
   /* ---------- init ---------- */
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', render);
+    document.addEventListener('DOMContentLoaded', () => { renderFilters(); render(); });
   } else {
+    renderFilters();
     render();
   }
 })(window);

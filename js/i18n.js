@@ -101,6 +101,8 @@
       'gallery.prev': 'Foto precedente',
       'gallery.next': 'Foto successiva',
       'gallery.counter': '{current} di {total}',
+      'gallery.see_inside': 'Vedi l\'interno',
+      'gallery.see_outside': 'Torna alla torta intera',
 
       'contact.title': 'Per l\'anima',
       'contact.body': 'Questo è il mio hobby, nato dal desiderio di regalare un po\' di bellezza a chi mi è caro e a chi mi sta sempre vicino. Se anche voi, come me, siete affascinati dai fiori, che siano bouquet veri o le loro delicate copie commestibili, e volete saperne di più, sarò felice di scambiare due parole. zefirodioksi@proton.me',
@@ -200,6 +202,8 @@
       'gallery.prev': 'Предыдущее фото',
       'gallery.next': 'Следующее фото',
       'gallery.counter': '{current} из {total}',
+      'gallery.see_inside': 'Показать внутри',
+      'gallery.see_outside': 'Вернуться к торту целиком',
 
       'contact.title': 'Для души',
       'contact.body': 'Это моё хобби, которое родилось из желания дарить красоту тем, кто мне дорог и кто всегда рядом. Если вы, как и я, восхищаетесь цветами, будь то живые букеты или их нежные съедобные копии, и хотите узнать больше — буду рада общению. zefirodioksi@proton.me',
@@ -299,6 +303,8 @@
       'gallery.prev': 'Previous photo',
       'gallery.next': 'Next photo',
       'gallery.counter': '{current} of {total}',
+      'gallery.see_inside': 'See inside',
+      'gallery.see_outside': 'Back to the whole cake',
 
       'contact.title': 'For the soul',
       'contact.body': 'This is my hobby, born from a wish to give a little beauty to the people I care about and who are always close to me. If you, like me, are drawn to flowers, whether real bouquets or their delicate edible copies, and would like to know more, I\'d be happy to chat. zefirodioksi@proton.me',
