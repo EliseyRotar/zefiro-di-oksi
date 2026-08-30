@@ -37,3 +37,11 @@ build/
 # (rimangono locali, non servono nel deploy)
 /images/qr-zefiro-di-oksi-3000.png
 /images/qr-zefiro-di-oksi-3000-margins.png
+
+# Chat log di opencode + sessioni di lunga conversazione (non fanno parte del sito)
+/opencode_chat_log.txt
+/session_*.txt
+
+# Script di test/debug one-shot usati durante lo sviluppo
+/scripts/test-gallery-debug.js
+/scripts/test-live-final.js
