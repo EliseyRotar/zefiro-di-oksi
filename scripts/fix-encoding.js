@@ -1,4 +1,4 @@
-// Fix definitivo encoding bug: i file committati in passato sono stati
+﻿﻿// Fix definitivo encoding bug: i file committati in passato sono stati
 // salvati male (alcuni Latin-1 puro, altri doppiamente corrotti da
 // successiva re-codifica). Questo script identifica TUTTI i casi e li
 // corregge, leggendo il file dal commit e scrivendolo come UTF-8 pulito.
