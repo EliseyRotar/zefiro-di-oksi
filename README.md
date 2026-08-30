@@ -31,19 +31,18 @@ una piccola sorpresa da scoprire.
 
 ## Il sito
 
-Sette pagine pubbliche + una pagina admin protetta, multilingua IT/RU/EN.
+Cinque pagine pubbliche + una pagina admin protetta, multilingua IT/RU/EN.
 
 ### Pagine pubbliche
 
-| Pagina              | Cosa contiene                                                 |
-| ------------------- | ------------------------------------------------------------- |
-| `index.html`        | Home con logo, tagline, immagine placeholder, petali animati  |
-| `chi-sono.html`     | Chi è Oksi, come è nato il progetto, paragrafo famiglia        |
-| `cos-e-lo-zefir.html` | 3 sezioni: scheda tecnica, blocco romantico, idea regalo + Conservazione |
-| `gusti.html`        | Lista unica dei gusti, niente divisione "disponibili/arrivo"   |
-| `galleria.html`     | Griglia di foto dei mini bouquet                              |
-| `contatti.html`     | Solo testo mailto, nessuna CTA                                |
-| `404.html`          | Pagina non trovata multilingua (servita da Cloudflare Pages)   |
+| Pagina                | Cosa contiene                                                                 |
+| --------------------- | ----------------------------------------------------------------------------- |
+| `index.html`          | Home con foto reale di Oksi, logo, tagline, petali animati                    |
+| `chi-sono.html`       | Chi è Oksi, come è nato il progetto, bio completa                            |
+| `cos-e-lo-zefir.html` | 3 sezioni: cos'è lo zefir, romantic block, idea regalo + box Conservazione   |
+| `galleria.html`       | Griglia filtrabile di 60+ foto delle creazioni, lightbox accessibile         |
+| `contatti.html`       | Solo testo + mailto cliccabile, niente CTA aggressive                         |
+| `404.html`            | Pagina non trovata multilingua (servita da Cloudflare Pages)                 |
 
 ### Admin
 
@@ -77,7 +76,7 @@ si carica in pochi secondi su Cloudflare Pages.
 
 ```
 Zefiro_di_Oksi/
-├── index.html, chi-sono.html, cos-e-lo-zefir.html, gusti.html,
+├── index.html, chi-sono.html, cos-e-lo-zefir.html,
 │   galleria.html, contatti.html, 404.html, admin.html
 ├── css/
 │   └── style.css
@@ -85,6 +84,8 @@ Zefiro_di_Oksi/
 │   ├── i18n.js          dizionario IT/RU/EN + auto-detect + localStorage
 │   ├── main.js          click handler per lo switch lingua
 │   ├── animations.js    reveal progressivo con IntersectionObserver
+│   ├── gallery-data.js  catalogo immagini galleria (categoria + descrizioni IT/RU/EN)
+│   ├── gallery.js       render galleria + lightbox accessibile
 │   ├── analytics.js     raccolta dati in localStorage (no server)
 │   └── admin.js         dashboard analytics + autenticazione SHA-256
 ├── images/
