@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title data-i18n="meta.about.title">Chi sono  Zefiro di Oksi</title>
-  <meta name="description" content="Oksana, in arte Oksi, racconta come � nato Zefiro di Oksi." data-i18n-attr="content" data-i18n="meta.about.desc" />
+  <title data-i18n="meta.about.title">Chi sono — Zefiro di Oksi</title>
+  <meta name="description" content="Oksana, in arte Oksi, racconta come è nato Zefiro di Oksi." data-i18n-attr="content" data-i18n="meta.about.desc" />
   <link rel="icon" type="image/png" href="images/favicon-rose.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -26,7 +26,7 @@
       </a>
       <div class="lang-switch" role="group" aria-label="Cambia lingua">
         <button class="lang-btn" type="button" data-lang-switch="it" aria-label="Italiano"><img src="images/flags/it.svg" alt="IT" /></button>
-        <button class="lang-btn" type="button" data-lang-switch="ru" aria-label=" CAA:89"><img src="images/flags/ru.svg" alt="RU" /></button>
+        <button class="lang-btn" type="button" data-lang-switch="ru" aria-label="Русский"><img src="images/flags/ru.svg" alt="RU" /></button>
         <button class="lang-btn" type="button" data-lang-switch="en" aria-label="English"><img src="images/flags/en.svg" alt="EN" /></button>
       </div>
     </div>
@@ -35,7 +35,21 @@
   <main>
     <section class="section container prose" aria-labelledby="titolo-chisono">
       <h1 id="titolo-chisono" class="section-title" data-i18n="about.title">Chi sono</h1>
+
+      <div class="about-photo-wrap">
+        <img class="about-photo"
+             src="images/gallery-01-persona-mamma-montagna.jpg"
+             alt="La mamma di Oksi in un borgo di montagna" />
+      </div>
+
       <p data-i18n="about.body">Mi chiamo Oksana...</p>
+    </section>
+
+    <section class="section container">
+      <article class="about-family-card">
+        <h2 class="about-family-title" data-i18n="about.family.title">Grazie di cuore</h2>
+        <p class="about-family-body" data-i18n="about.family.body">Voglio ringraziare con tutto il cuore la mia famiglia...</p>
+      </article>
     </section>
   </main>
 
@@ -51,7 +65,7 @@
       </a>
       <a href="cos-e-lo-zefir.html">
         <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><circle class="nav-icon-fill" cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="6"/><path d="M12 2 v3 M12 19 v3 M2 12 h3 M19 12 h3 M4.9 4.9 l2.1 2.1 M17 17 l2.1 2.1 M4.9 19.1 l2.1 -2.1 M17 7 l2.1 -2.1"/></svg>
-        <span data-i18n="nav.zefir">Cos'� lo zefir</span>
+        <span data-i18n="nav.zefir">Cos'è lo zefir</span>
       </a>
       <a href="galleria.html">
         <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="1.5" class="nav-icon-fill"/><path d="M21 17 L15 11 L9 17"/></svg>
@@ -65,8 +79,8 @@
   </nav>
 
   <footer class="site-footer">
-    <div>Zefiro di Oksi � <span data-i18n="footer.tagline">un hobby fatto a mano, con cura</span></div>
-    <div class="small">� <span id="anno"></span> Zefiro di Oksi � <span data-i18n="footer.disclaimer">Sito amatoriale, non un e-commerce</span></div>
+    <div>Zefiro di Oksi · <span data-i18n="footer.tagline">fiori di zefir fatti a mano, con cura</span></div>
+    <div class="small">© <span id="anno"></span> Zefiro di Oksi · <span data-i18n="footer.disclaimer">Sito amatoriale, non un e-commerce</span></div>
   </footer>
 
   <script src="js/i18n.js"></script>
