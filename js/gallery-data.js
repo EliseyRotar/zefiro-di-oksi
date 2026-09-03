@@ -165,15 +165,22 @@
       alt: 'Torta a forma di numero 14' },
   ];
 
-  /* Filtri attivi (solo Tutte + Zefir come da richiesta utente) */
+  /* Filtri attivi: "I miei lavori" (tutto tranne zefir) + "Zefir" */
   const FILTERS = [
-    { id: 'all', labelKey: 'gallery.filter.all' },
-    { id: 'zefir', labelKey: 'gallery.filter.zefir' },
+    { id: 'myworks', labelKey: 'gallery.filter.myworks' },
+    { id: 'zefir',   labelKey: 'gallery.filter.zefir' },
   ];
 
   function visibleItems(cat) {
-    const all = cat === 'all' ? ITEMS : ITEMS.filter(it => it.cat === cat);
-    return all.filter(it => !it.hidden);
+    let pool;
+    if (cat === 'myworks') {
+      pool = ITEMS.filter(it => it.cat !== 'zefir');
+    } else if (cat === 'all') {
+      pool = ITEMS;
+    } else {
+      pool = ITEMS.filter(it => it.cat === cat);
+    }
+    return pool.filter(it => !it.hidden);
   }
 
   /* Lookup per filename (serve al lightbox per trovare la slice correlata) */

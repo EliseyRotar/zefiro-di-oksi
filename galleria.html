@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title data-i18n="meta.gallery.title">Galleria  Zefiro di Oksi</title>
+  <title data-i18n="meta.gallery.title">Galleria — Zefiro di Oksi</title>
   <meta name="description" content="Le creazioni dolciarie di Oksi: torte, dolci, decorazioni e fiori di zefir." data-i18n-attr="content" data-i18n="meta.gallery.desc" />
   <link rel="icon" type="image/png" href="images/favicon-rose.png" />
 
@@ -26,7 +26,7 @@
       </a>
       <div class="lang-switch" role="group" aria-label="Cambia lingua">
         <button class="lang-btn" type="button" data-lang-switch="it" aria-label="Italiano"><img src="images/flags/it.svg" alt="IT" /></button>
-        <button class="lang-btn" type="button" data-lang-switch="ru" aria-label=" CAA:89"><img src="images/flags/ru.svg" alt="RU" /></button>
+        <button class="lang-btn" type="button" data-lang-switch="ru" aria-label="Русский"><img src="images/flags/ru.svg" alt="RU" /></button>
         <button class="lang-btn" type="button" data-lang-switch="en" aria-label="English"><img src="images/flags/en.svg" alt="EN" /></button>
       </div>
     </div>
@@ -35,11 +35,10 @@
   <main>
     <section class="section container" aria-labelledby="titolo-galleria">
       <h1 id="titolo-galleria" class="section-title" data-i18n="gallery.title">Galleria</h1>
-      <p class="section-intro" data-i18n="gallery.intro">Alcune delle mie composizioni. Ogni foto � un'occasione per raccontare un fiore.</p>
+      <p class="section-intro" data-i18n="gallery.intro">Alcune delle mie composizioni. Ogni foto è un'occasione per raccontare un fiore.</p>
 
       <div class="gallery-filters" role="group" aria-label="Filtra per categoria">
-        <button type="button" class="filter-btn is-active" data-filter="all" data-i18n="gallery.filter.all">Tutte</button>
-        <button type="button" class="filter-btn" data-filter="zefir" data-i18n="gallery.filter.zefir">Zefir</button>
+        <!-- Popolato da js/gallery.js -->
       </div>
 
       <div class="gallery-count" id="gallery-count" aria-live="polite"></div>
@@ -84,7 +83,7 @@
       </a>
       <a href="cos-e-lo-zefir.html">
         <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><circle class="nav-icon-fill" cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="6"/><path d="M12 2 v3 M12 19 v3 M2 12 h3 M19 12 h3 M4.9 4.9 l2.1 2.1 M17 17 l2.1 2.1 M4.9 19.1 l2.1 -2.1 M17 7 l2.1 -2.1"/></svg>
-        <span data-i18n="nav.zefir">Cos'� lo zefir</span>
+        <span data-i18n="nav.zefir">Cos'è lo zefir</span>
       </a>
       <a href="galleria.html" aria-current="page">
         <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="1.5" class="nav-icon-fill"/><path d="M21 17 L15 11 L9 17"/></svg>
@@ -98,8 +97,8 @@
   </nav>
 
   <footer class="site-footer">
-    <div>Zefiro di Oksi � <span data-i18n="footer.tagline">un hobby fatto a mano, con cura</span></div>
-    <div class="small">� <span id="anno"></span> Zefiro di Oksi � <span data-i18n="footer.disclaimer">Sito amatoriale, non un e-commerce</span></div>
+    <div>Zefiro di Oksi · <span data-i18n="footer.tagline">fiori di zefir fatti a mano, con cura</span></div>
+    <div class="small">© <span id="anno"></span> Zefiro di Oksi · <span data-i18n="footer.disclaimer">Sito amatoriale, non un e-commerce</span></div>
   </footer>
 
   <script src="js/i18n.js"></script>

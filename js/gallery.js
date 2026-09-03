@@ -22,7 +22,7 @@
   const lbNext  = document.getElementById('lightbox-next');
   const filtersHost = document.querySelector('.gallery-filters');
 
-  let currentFilter = 'all';
+  let currentFilter = 'myworks';
   let currentList = [];      // lista di items visibili (filtrata)
   let currentIndex = 0;      // indice in currentList
   let currentItem = null;     // item aperto nel lightbox (= currentList[currentIndex])
@@ -43,7 +43,7 @@
   function renderFilters() {
     filtersHost.innerHTML = '';
     const list = (global.GALLERY && global.GALLERY.FILTERS) || [
-      { id: 'all', labelKey: 'gallery.filter.all' },
+      { id: 'myworks', labelKey: 'gallery.filter.myworks' },
       { id: 'zefir', labelKey: 'gallery.filter.zefir' },
     ];
     list.forEach((f, i) => {
