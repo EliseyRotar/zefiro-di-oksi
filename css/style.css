@@ -758,6 +758,17 @@ a:hover, a:focus { color: #946e7a; }
   margin-top: 6px;
   line-height: 1.5;
 }
+.site-credit {
+  margin-top: 4px !important;
+  font-size: 0.74rem !important;
+}
+.site-credit a {
+  color: var(--rosa-scuro, #b8969e);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+.site-credit a:hover { color: var(--testo); }
 
 /* ---------- Accessibilita' ---------- */
 .visually-hidden {
@@ -1238,4 +1249,43 @@ body.no-scroll { overflow: hidden; }
   .logo-hero, .hero-welcome, .hero-tagline, .about-family-card, .about-photo {
     animation: none;
   }
+}
+
+/* =========================================================
+   BOX SUPPORTO (donazione delicata, contatti)
+   ========================================================= */
+.support-card {
+  margin: 0 auto;
+  max-width: 540px;
+  padding: 28px 28px 30px;
+  background: var(--beige-caldo, #f6ecdc);
+  border: 1px dashed var(--rosa-polveroso, #d9b8be);
+  border-radius: var(--raggio, 18px);
+  text-align: center;
+  box-shadow: 0 4px 18px rgba(120, 80, 60, .10);
+}
+.support-title {
+  font-family: var(--serif, 'Cormorant Garamond'), serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--rosa-scuro, #b8969e);
+  margin: 0 0 12px;
+}
+.support-body {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--testo);
+  margin: 0 0 12px;
+  text-align: left;
+}
+.support-note {
+  font-style: italic;
+  font-size: .92rem;
+  color: var(--marrone-chiaro, #7a6157);
+  margin: 0 0 18px;
+}
+.support-email-wrap {
+  margin-top: 8px;
+  text-align: center;
 }

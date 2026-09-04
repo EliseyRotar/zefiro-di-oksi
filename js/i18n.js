@@ -51,7 +51,7 @@
       'about.title': 'Chi sono',
       'about.body': 'Sono Oksana, ma per gli amici sono semplicemente Oksi, ed è proprio per questo che il mio piccolo mondo dolce si chiama «Zefiro di Oksi». Ho sempre amato il mondo della pasticceria: ho iniziato da bambina, osservando mia nonna, che era chef in un ristorante rinomato, e da allora non ho mai smesso di imparare. Ho preparato torte, pasticcini, biscotti, crostate, croissant, profumate brioches francesi, cheesecake e dolci al cioccolato, ho imparato la glassa a specchio e molto altro ancora. Di recente ho scoperto una nuova passione: la fioristica di zefir, un dolce delicatissimo che non ha nulla a che vedere con il marshmallow. Sto ancora imparando, frequento un corso di fioristica di zefir, e il diploma arriverà tra qualche mese. Ma sono già felice di mostrarvi le mie prime piccole composizioni. Ogni fiore nasce da purea di frutta fatta in casa, senza conservanti, lattosio o glutine, con albumina e agar-agar, un\'alternativa naturale alla gelatina adatta anche ai vegetariani. Ho già provato a lavorare con diversi gusti: mela, lampone, ribes nero, pesca, banana, mirtillo di bosco. Presto arriveranno pera, ciliegia, melone e mango: la mia collezione cresce insieme a me. In ogni composizione amo unire fiori di gusti diversi, così ogni bouquet diventa una piccola sorpresa da scoprire.',
       'about.family.title': 'Grazie di cuore',
-      'about.family.body': 'Voglio ringraziare con tutto il cuore la mia famiglia, che mi sostiene ogni giorno nei miei progetti creativi: con il cuore, con le mani, e con una pazienza infinita. Senza di voi tutto questo non esisterebbe.',
+      'about.family.body': 'Grazie alla mia famiglia, che ogni giorno mi sostiene nei miei progetti creativi: col cuore, con le mani e con infinita pazienza. Senza di voi tutto questo non esisterebbe.',
 
       'zefir.title': 'Cos\'è lo zefir',
       'zefir.info': 'Cos\'è la fioristica di zefir? Lo zefir è un dolce delicatissimo originario dell\'Europa dell\'Est. Ha preso il suo nome in onore di Zefiro, l\'antico dio greco del leggero vento d\'occidente, proprio per la sua consistenza leggera e ariosa. Da questa nuvola commestibile nascono petali e fiori. Raccolti a mano, uno per uno, con amore, in piccoli bouquet dolci, da ammirare e poi da gustare.',
@@ -92,7 +92,7 @@
       'gallery.cap.default': 'Mini bouquet',
 
       'gallery.filter.all': 'Tutte',
-      'gallery.filter.myworks': 'I miei lavori',
+      'gallery.filter.myworks': 'Alcuni dei miei lavori',
       'gallery.filter.zefir': 'Zefir',
       'gallery.filter.torte': 'Torte',
       'gallery.filter.occasioni': 'Occasioni',
@@ -113,6 +113,12 @@
 
       'footer.tagline': 'fiori di zefir fatti a mano, con cura',
       'footer.disclaimer': 'Sito amatoriale, non un e-commerce',
+      'footer.credit.label': 'Sito creato da',
+      'footer.credit.name': 'Elisey Rotar',
+      'footer.credit.role': 'studente di Informatica @ Dalmine Marconi',
+      'support.title': 'Un piccolo gesto, se ti va',
+      'support.body': 'Questo hobby è nato per dare un po\' di bellezza a chi mi è vicino. Se ti fa piacere sostenermi — anche solo con un piccolo contributo, come un\'offerta in chiesa — sarò davvero felice. Posso ricambiare con un piccolo bouquet di fiori di zefir fatto a mano per te o per chi vuoi tu. Scrivimi e ne parliamo.',
+      'support.note': 'Nessun obbligo, nessuna pressione. Solo se ti fa piacere.',
     },
 
     ru: {
@@ -153,8 +159,8 @@
 
       'about.title': 'Обо мне',
       'about.body': 'Я - Оксана, но для друзей просто Окси — именно поэтому мой маленький сладкий мир называется «Зефиро ди Окси». Я всегда любила кондитерский мир: начала ещё ребёнком, наблюдая за бабушкой, которая была шеф-поваром в известном ресторане, — и с тех пор не переставала учиться. Я готовила торты, пироженные, печенье, кростаты, круассаны, ароматные французские булочки, чизкейки и шоколадные десерты, освоила зеркальную глазурь и многое другое. А недавно открыла для себя новое увлечение — зефирную флористику: нежнейший десерт, который не имеет ничего общего с маршмэллоу. Я ещё учусь, посещаю курсы зефирной флористики, дипломная работа будет через несколько месяцев. Но мне уже приятно показать вам мои первые небольшие композиции. Каждый цветок рождается из домашнего фруктового пюре без консервантов, лактозы и глютена, с альбумином и агар-агаром — натуральной альтернативой желатину, которая подходит и вегетарианцам. Пробовала уже работать с несколькими вкусами: яблоко, малина, чёрная смородина, персик, банан, лесная клюква. В ближайшее время появятся груша, вишня, дыня и манго — моя коллекция растёт вместе со мной. В каждой композиции я люблю сочетать цветы разных вкусов, так что каждый букет становится маленьким сюрпризом, который предстоит открыть.',
-      'about.family.title': 'Спасибо от всего сердца',
-      'about.family.body': 'Хочу от всего сердца поблагодарить мою семью, которая каждый день поддерживает меня в моих творческих проектах — сердцем, руками и бесконечным терпением. Без вас ничего этого не было бы.',
+      'about.family.title': 'Спасибо от всего сердца.',
+      'about.family.body': 'Благодарю мою семью, которая каждый день поддерживает меня в моих творческих проектах.',
 
       'zefir.title': 'Что такое зефир',
       'zefir.info': 'Что такое зефирная флористика? Зефир - это нежнейший десерт родом из Восточной Европы. Он получил своё название в честь древнегреческого бога лёгкого западного ветра Зефира — всё из-за его лёгкой и воздушной текстуры. Из этого съедобного облака рождаются лепестки и цветы. Собранные вручную, один за другим, с любовью, в маленькие сладкие букеты — ими можно любоваться, а потом наслаждаться вкусом.',
@@ -195,7 +201,7 @@
       'gallery.cap.default': 'Маленький букет',
 
       'gallery.filter.all': 'Все',
-      'gallery.filter.myworks': 'Мои работы',
+      'gallery.filter.myworks': 'Некоторые из моих работ',
       'gallery.filter.zefir': 'Зефир',
       'gallery.filter.torte': 'Торты',
       'gallery.filter.occasioni': 'Поводы',
@@ -216,6 +222,12 @@
 
       'footer.tagline': 'нежные цветы из зефира, ручная работа',
       'footer.disclaimer': 'Любительский сайт, не интернет-магазин',
+      'footer.credit.label': 'Сайт сделал',
+      'footer.credit.name': 'Elisey Rotar',
+      'footer.credit.role': 'студент информатики в Дальмине Маркони',
+      'support.title': 'Маленький жест, если хотите',
+      'support.body': 'Это хобби родилось из желания подарить немного красоты тем, кто рядом. Если хотите меня поддержать — даже небольшим взносом, как пожертвование в церкви — я буду очень рада. Взамен я с удовольствием сделаю для вас или для ваших близких маленький букет цветов из зефира. Напишите мне, и мы обсудим.',
+      'support.note': 'Никаких обязательств. Только если хочется.',
     },
 
     en: {
@@ -223,7 +235,7 @@
       'site.tagline': 'handmade zefir flowers',
 
       'meta.home.title': 'Zefiro di Oksi — handmade zefir flowers',
-      'meta.home.desc': 'Zefiro di Oksi: handmade zefir flowers, with love, flavor after flavor.',
+      'meta.home.desc': 'Zefiro di Oksi: handmade zefir flowers, made with love.',
       'meta.about.title': 'About me — Zefiro di Oksi',
       'meta.about.desc': 'Oksana, known as Oksi, tells the story behind Zefiro di Oksi.',
       'meta.zefir.title': 'What is zefir — Zefiro di Oksi',
@@ -256,8 +268,8 @@
 
       'about.title': 'About me',
       'about.body': 'I\'m Oksana, but to friends I\'m simply Oksi, which is exactly why my little sweet world is called "Zefiro di Oksi." I\'ve always loved the world of pastry-making: I started as a child, watching my grandmother, who was a chef at a well-known restaurant, and I\'ve never stopped learning since. I\'ve made cakes, pastries, cookies, tarts, croissants, fragrant French brioches, cheesecakes and chocolate desserts, and learned mirror glaze techniques and much more. Recently I discovered a new passion: zephyr floristry, a delicate dessert that has nothing to do with marshmallow. I\'m still learning, taking a zephyr floristry course, and my diploma is a few months away. But I\'m already happy to show you my first small arrangements. Every flower is made from homemade fruit purée, free of preservatives, lactose and gluten, with albumin and agar-agar, a natural alternative to gelatin that\'s also suitable for vegetarians. I\'ve already worked with several flavors: apple, raspberry, blackcurrant, peach, banana, wild cranberry. Pear, cherry, melon and mango are coming soon, my collection keeps growing along with me. In every arrangement I love combining flowers of different flavors, so every bouquet becomes a little surprise waiting to be discovered.',
-      'about.family.title': 'With all my heart',
-      'about.family.body': 'I want to thank with all my heart my family, who support me every day in my creative projects — with their hearts, with their hands, and with endless patience. Without you, none of this would exist.',
+      'about.family.title': 'With all my heart.',
+      'about.family.body': 'I thank my family, who support me every day in my creative projects.',
 
       'zefir.title': 'What is zefir',
       'zefir.info': 'What is zephyr floristry? Zephyr is a delicate dessert originating from Eastern Europe. It got its name in honor of Zephyrus, the ancient Greek god of the gentle west wind, because of its light and airy texture. From this edible cloud, petals and flowers are born. Gathered by hand, one by one, with love, into small sweet bouquets, to be admired and then savored.',
@@ -298,7 +310,7 @@
       'gallery.cap.default': 'Mini bouquet',
 
       'gallery.filter.all': 'All',
-      'gallery.filter.myworks': 'My work',
+      'gallery.filter.myworks': 'Some of my works',
       'gallery.filter.zefir': 'Zefir',
       'gallery.filter.torte': 'Cakes',
       'gallery.filter.occasioni': 'Occasions',
@@ -319,6 +331,12 @@
 
       'footer.tagline': 'handmade zefir flowers, with care',
       'footer.disclaimer': 'Amateur site, not an e-commerce',
+      'footer.credit.label': 'Site by',
+      'footer.credit.name': 'Elisey Rotar',
+      'footer.credit.role': 'computer science student @ Dalmine Marconi',
+      'support.title': 'A small gesture, if you like',
+      'support.body': 'This hobby was born to share a little beauty with the people I care about. If you would like to support it — even with a small contribution, like an offering at church — I would be truly happy. I can return the favour with a small handmade zefir bouquet, for you or for someone you love. Drop me a message and we can talk.',
+      'support.note': 'No obligation at all. Only if it feels right.',
     },
   };
 
