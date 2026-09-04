@@ -116,9 +116,9 @@
       'footer.credit.label': 'Sito creato da',
       'footer.credit.name': 'Elisey Rotar',
       'footer.credit.role': 'studente di Informatica @ Dalmine Marconi',
-      'support.title': 'Un piccolo gesto, se ti va',
-      'support.body': 'Questo hobby è nato per dare un po\' di bellezza a chi mi è vicino. Se ti fa piacere sostenermi — anche solo con un piccolo contributo, come un\'offerta in chiesa — sarò davvero felice. Posso ricambiare con un piccolo bouquet di fiori di zefir fatto a mano per te o per chi vuoi tu. Scrivimi e ne parliamo.',
-      'support.note': 'Nessun obbligo, nessuna pressione. Solo se ti fa piacere.',
+      'support.title': 'P.S.',
+      'support.body': 'Se avete voglia di sostenermi in questo mio percorso, ogni piccolo contributo sara' gradito. Grazie di cuore.',
+      'support.note': '',
     },
 
     ru: {
@@ -225,9 +225,9 @@
       'footer.credit.label': 'Сайт сделал',
       'footer.credit.name': 'Elisey Rotar',
       'footer.credit.role': 'студент информатики в Дальмине Маркони',
-      'support.title': 'Маленький жест, если хотите',
-      'support.body': 'Это хобби родилось из желания подарить немного красоты тем, кто рядом. Если хотите меня поддержать — даже небольшим взносом, как пожертвование в церкви — я буду очень рада. Взамен я с удовольствием сделаю для вас или для ваших близких маленький букет цветов из зефира. Напишите мне, и мы обсудим.',
-      'support.note': 'Никаких обязательств. Только если хочется.',
+      'support.title': 'P.S.',
+      'support.body': 'Если у вас есть желание поддержать меня в моих начинаниях, буду рада любому участию. Спасибо.',
+      'support.note': '',
     },
 
     en: {
@@ -334,9 +334,9 @@
       'footer.credit.label': 'Site by',
       'footer.credit.name': 'Elisey Rotar',
       'footer.credit.role': 'computer science student @ Dalmine Marconi',
-      'support.title': 'A small gesture, if you like',
-      'support.body': 'This hobby was born to share a little beauty with the people I care about. If you would like to support it — even with a small contribution, like an offering at church — I would be truly happy. I can return the favour with a small handmade zefir bouquet, for you or for someone you love. Drop me a message and we can talk.',
-      'support.note': 'No obligation at all. Only if it feels right.',
+      'support.title': 'P.S.',
+      'support.body': 'If you would like to support me on this journey, I would be grateful for any kind of contribution. Thank you.',
+      'support.note': '',
     },
   };
 
@@ -471,6 +471,11 @@
           document.title = value;
         } else {
           el.textContent = value;
+          /* Se la traduzione e' vuota, nascondi l'elemento (utile per
+             support.note che ora e' stringa vuota) */
+          if (value === '' && el.hasAttribute('data-content')) {
+            el.hidden = true;
+          }
         }
       }
     });

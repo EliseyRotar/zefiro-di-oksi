@@ -36,6 +36,10 @@
           el.setAttribute('href', overrides[section][key]);
         } else {
           el.textContent = overrides[section][key];
+          /* Se il campo support.note e' vuoto, nascondi il paragrafo */
+          if (path === 'support.note' && overrides[section][key] === '') {
+            el.hidden = true;
+          }
         }
       }
     });
