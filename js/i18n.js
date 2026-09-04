@@ -342,20 +342,54 @@
 
   /* =========================================================
      Logica di gestione lingua
+     - Persistenza per il dispositivo: localStorage + cookie
+       (cookie fallback per ambienti che cancellano localStorage
+       come Safari ITP o navigazione in incognito stretta)
+     - Auto-detect dalla lingua del browser (navigator.languages)
+     - Mappa it/ru/en con fallback "en" per qualsiasi altra lingua
+     - La lingua auto-rilevata viene salvata al primo caricamento,
+       cosi' le visite successive partono sempre con quella lingua
+       anche se l'utente non ha cliccato nessuna bandierina.
      ========================================================= */
 
   const SUPPORTED = ['it', 'ru', 'en'];
   const STORAGE_KEY = 'zefiro-lang';
+  const COOKIE_KEY = 'zefiro_lang';
+  const COOKIE_MAX_AGE = 60 * 60 * 24 * 365; // 1 anno
 
-  function detectInitial() {
+  /* Cookie helpers (no dipendenze) */
+  function readCookie(name) {
     try {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved && SUPPORTED.includes(saved)) return saved;
+      const m = document.cookie.match(
+        new RegExp('(?:^|; )' + name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '=([^;]*)')
+      );
+      return m ? decodeURIComponent(m[1]) : null;
+    } catch (_) { return null; }
+  }
+  function writeCookie(name, value, maxAgeSec) {
+    try {
+      document.cookie =
+        name + '=' + encodeURIComponent(value) +
+        '; path=/; max-age=' + maxAgeSec +
+        '; SameSite=Lax';
     } catch (_) {}
+  }
 
-    // navigator.languages e' un array ordinato per preferenza
-    // (es. ["ru-RU", "en-US", "it-IT"]).
-    // Cerchiamo la prima lingua supportata nella lista.
+  /* Estrai la lingua base (es. "it-IT" -> "it") da un tag BCP 47.
+     Usa Intl.Locale se disponibile, fallback a parsing manuale. */
+  function baseLang(tag) {
+    if (!tag) return '';
+    try {
+      if (typeof Intl !== 'undefined' && Intl.Locale) {
+        return new Intl.Locale(String(tag)).language.toLowerCase();
+      }
+    } catch (_) {}
+    return String(tag).toLowerCase().split(/[-_]/)[0];
+  }
+
+  /* Restituisce la prima lingua tra i preferiti del browser che sia
+     nelle 3 supportate. Se nessuna matcha -> 'en'. */
+  function pickFromBrowser() {
     let prefs = [];
     try {
       if (Array.isArray(navigator.languages) && navigator.languages.length) {
@@ -366,18 +400,40 @@
         prefs = [navigator.userLanguage];
       }
     } catch (_) {}
-
     for (const raw of prefs) {
-      const code = String(raw || '').toLowerCase();
-      if (code.startsWith('it')) return 'it';
-      if (code.startsWith('ru')) return 'ru';
-      if (code.startsWith('en')) return 'en';
+      const lang = baseLang(raw);
+      if (SUPPORTED.includes(lang)) return lang;
     }
-    // Fallback per qualsiasi altra lingua (fr, de, es, ...): inglese
     return 'en';
   }
 
+  function detectInitial() {
+    /* 1) localStorage ha la priorita' (esplicito utente) */
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved && SUPPORTED.includes(saved)) return saved;
+    } catch (_) {}
+
+    /* 2) cookie come fallback aggiuntivo */
+    const fromCookie = readCookie(COOKIE_KEY);
+    if (fromCookie && SUPPORTED.includes(fromCookie)) {
+      /* Ripristina anche in localStorage per coerenza */
+      try { localStorage.setItem(STORAGE_KEY, fromCookie); } catch (_) {}
+      return fromCookie;
+    }
+
+    /* 3) auto-detect dal browser */
+    const detected = pickFromBrowser();
+    /* Salva subito la lingua rilevata cosi' l'utente non deve
+       cliccare la bandierina al primo accesso. */
+    try { localStorage.setItem(STORAGE_KEY, detected); } catch (_) {}
+    writeCookie(COOKIE_KEY, detected, COOKIE_MAX_AGE);
+    return detected;
+  }
+
   let current = detectInitial();
+  /* Assicurati che anche il cookie sia sincronizzato al boot. */
+  writeCookie(COOKIE_KEY, current, COOKIE_MAX_AGE);
 
   function get(key) {
     const dict = DICT[current] || DICT.it;
@@ -389,7 +445,11 @@
   function setLang(lang) {
     if (!SUPPORTED.includes(lang)) return;
     current = lang;
+    /* Salva sia in localStorage che come cookie, in modo che la
+       scelta dell'utente resti persistente anche in incognito
+       stretta o dopo pulizia del localStorage. */
     try { localStorage.setItem(STORAGE_KEY, lang); } catch (_) {}
+    writeCookie(COOKIE_KEY, lang, COOKIE_MAX_AGE);
     applyAll();
     document.dispatchEvent(new CustomEvent('zefiro:langchange', { detail: { lang } }));
   }
