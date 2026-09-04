@@ -45,3 +45,6 @@ build/
 # Script di test/debug one-shot usati durante lo sviluppo
 /scripts/test-gallery-debug.js
 /scripts/test-live-final.js
+
+# Messaggi vocali/audio di lavoro (non fanno parte del sito)
+/audio/

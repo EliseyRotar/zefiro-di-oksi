@@ -53,6 +53,24 @@
         </p>
       </div>
     </section>
+
+    <section class="section container" aria-labelledby="titolo-supporto">
+      <article class="support-card">
+        <h2 id="titolo-supporto" class="support-title" data-i18n="support.title">Un piccolo gesto, se ti va</h2>
+        <p class="support-body" data-i18n="support.body">
+          Questo hobby è nato per dare un po' di bellezza a chi mi è vicino...
+        </p>
+        <p class="support-note" data-i18n="support.note">
+          Nessun obbligo, nessuna pressione. Solo se ti fa piacere.
+        </p>
+        <div class="support-email-wrap">
+          <a class="contact-email"
+             href="mailto:zefirodioksi@proton.me?subject=Un%20piccolo%20gesto%20per%20il%20tuo%20hobby">
+            <span data-i18n="contact.email">zefirodioksi@proton.me</span>
+          </a>
+        </div>
+      </article>
+    </section>
   </main>
 
   <nav class="bottom-nav" aria-label="Navigazione principale">
@@ -83,9 +101,11 @@
   <footer class="site-footer">
     <div>Zefiro di Oksi · <span data-i18n="footer.tagline">fiori di zefir fatti a mano, con cura</span></div>
     <div class="small">© <span id="anno"></span> Zefiro di Oksi · <span data-i18n="footer.disclaimer">Sito amatoriale, non un e-commerce</span></div>
+    <div class="small site-credit"><span data-i18n="footer.credit.label">Sito creato da</span> <a href="https://github.com/EliseyRotar" target="_blank" rel="noopener noreferrer" data-i18n="footer.credit.name">Elisey Rotar</a> · <span data-i18n="footer.credit.role">studente di Informatica @ Dalmine Marconi</span></div>
   </footer>
 
   <script src="js/i18n.js"></script>
+  <script src="js/og-meta.js"></script>
   <script src="js/analytics.js"></script>
   <script src="js/main.js"></script>
   <script>document.getElementById('anno').textContent = new Date().getFullYear();</script>
