@@ -10,6 +10,10 @@
      { file: 'gallery-XX-...jpg',
        cat: 'zefir'|'torte'|'occasioni'|'varie',
        alt: 'testo alt italiano (breve, per accessibilita)',
+       order: 12.5                  // opzionale: numero per riordinare la
+                                     // visualizzazione (default = posizione
+                                     // nell'array). Usato per evitare adiacenze
+                                     // di colore (es. torte cuore rosso).
        slice: 'gallery-YY-...jpg'   // opzionale: filename del taglio interno
                                      // correlato (mostra pulsante "vedi interno"
                                      // nel lightbox)
@@ -33,8 +37,8 @@
       alt: 'Torta cioccolato 40 con peonie di zefir e bassotto' },
     { file: 'gallery-08-torte-cioccolato-glassa-specchio-peonie-zefir.jpg', cat: 'zefir',
       alt: 'Torta cioccolato con peonie di zefir' },
-    { file: 'gallery-09-varie-cucciolo-mops-marzapane.jpg', cat: 'varie',
-      alt: 'Cucciolo di carlino di marzapane' },
+    { file: 'gallery-09-varie-cucciolo-mops-marzapane.jpg', cat: 'zefir',
+      alt: 'Cucciolo di carlino di zefir' },
     { file: 'gallery-10-torte-viola-specchio-foglia-oro-macaron.jpg', cat: 'torte',
       alt: 'Torta viola specchio con foglia oro e macaron',
       slice: 'gallery-11-torte-fetta-mousse-frutti-bosco-specchio-viola.jpg' },
@@ -43,14 +47,17 @@
       hidden: true },
     { file: 'gallery-12-occasioni-torta-cuore-rossa-specchio-60-anniversario.jpg', cat: 'occasioni',
       alt: 'Torta cuore rossa con 60 oro e bottiglia di spumante',
+      order: 12,
       slice: 'gallery-13-torte-fetta-mousse-rossa-doppio-strato.jpg' },
     { file: 'gallery-13-torte-fetta-mousse-rossa-doppio-strato.jpg', cat: 'torte',
       alt: 'Fetta di mousse rossa a doppio strato',
       hidden: true },
     { file: 'gallery-14-occasioni-torta-cuore-rossa-specchio-foglia-oro.jpg', cat: 'occasioni',
-      alt: 'Torta cuore rossa con foglia oro' },
+      alt: 'Torta cuore rossa con foglia oro',
+      order: 14 },
     { file: 'gallery-15-varie-crostata-intreccio-cuoricini-frutta.jpg', cat: 'varie',
-      alt: 'Crostata a intreccio con cuoricini e frutta' },
+      alt: 'Crostata a intreccio con cuoricini e frutta',
+      order: 13.5 },
     { file: 'gallery-16-occasioni-biscotti-natale-assortiti-vassoio.jpg', cat: 'occasioni',
       alt: 'Vassoio di biscotti natalizi assortiti' },
     { file: 'gallery-17-occasioni-biscotti-natale-vassoio-vista-alternativa.jpg', cat: 'occasioni',
@@ -180,7 +187,14 @@
     } else {
       pool = ITEMS.filter(it => it.cat === cat);
     }
-    return pool.filter(it => !it.hidden);
+    pool = pool.filter(it => !it.hidden);
+    /* Ordina per il campo `order` (default = posizione originale).
+       Permette di riordinare la visualizzazione senza rinominare i file. */
+    return pool.map((it, idx) => ({ it, idx })).sort((a, b) => {
+      const oa = (a.it.order !== undefined) ? a.it.order : a.idx;
+      const ob = (b.it.order !== undefined) ? b.it.order : b.idx;
+      return oa - ob;
+    }).map(x => x.it);
   }
 
   /* Lookup per filename (serve al lightbox per trovare la slice correlata) */
