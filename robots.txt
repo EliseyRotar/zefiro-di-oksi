@@ -1,0 +1,11 @@
+# Zefiro di Oksi - robots.txt
+# Tutte le pagine pubbliche sono indicizzabili.
+# Admin e private sono bloccate.
+
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /images/private/
+
+# Sitemap
+Sitemap: https://zefiro-di-oksi.pages.dev/sitemap.xml

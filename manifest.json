@@ -1,0 +1,20 @@
+{
+  "name": "Zefiro di Oksi",
+  "short_name": "Zefiro di Oksi",
+  "description": "Fiori di zefir fatti a mano, con cura",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f6ecdc",
+  "theme_color": "#b8969e",
+  "lang": "it",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/images/favicon-rose.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["food", "lifestyle", "hobby"]
+}

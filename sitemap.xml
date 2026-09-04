@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <url>
+    <loc>https://zefiro-di-oksi.pages.dev/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://zefiro-di-oksi.pages.dev/?lang=it"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://zefiro-di-oksi.pages.dev/?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zefiro-di-oksi.pages.dev/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zefiro-di-oksi.pages.dev/"/>
+    <image:image>
+      <image:loc>https://zefiro-di-oksi.pages.dev/images/photo-homepage.jpg</image:loc>
+      <image:title>Zefiro di Oksi — fiori di zefir fatti a mano</image:title>
+      <image:caption>Oksi con i suoi fiori di zefir artigianali</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://zefiro-di-oksi.pages.dev/chi-sono.html</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://zefiro-di-oksi.pages.dev/chi-sono.html?lang=it"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://zefiro-di-oksi.pages.dev/chi-sono.html?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zefiro-di-oksi.pages.dev/chi-sono.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zefiro-di-oksi.pages.dev/chi-sono.html"/>
+  </url>
+
+  <url>
+    <loc>https://zefiro-di-oksi.pages.dev/cos-e-lo-zefir.html</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://zefiro-di-oksi.pages.dev/cos-e-lo-zefir.html?lang=it"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://zefiro-di-oksi.pages.dev/cos-e-lo-zefir.html?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zefiro-di-oksi.pages.dev/cos-e-lo-zefir.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zefiro-di-oksi.pages.dev/cos-e-lo-zefir.html"/>
+  </url>
+
+  <url>
+    <loc>https://zefiro-di-oksi.pages.dev/galleria.html</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://zefiro-di-oksi.pages.dev/galleria.html?lang=it"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://zefiro-di-oksi.pages.dev/galleria.html?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zefiro-di-oksi.pages.dev/galleria.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zefiro-di-oksi.pages.dev/galleria.html"/>
+    <image:image>
+      <image:loc>https://zefiro-di-oksi.pages.dev/images/photo-homepage.jpg</image:loc>
+      <image:title>Galleria Zefiro di Oksi</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://zefiro-di-oksi.pages.dev/contatti.html</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://zefiro-di-oksi.pages.dev/contatti.html?lang=it"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://zefiro-di-oksi.pages.dev/contatti.html?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zefiro-di-oksi.pages.dev/contatti.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zefiro-di-oksi.pages.dev/contatti.html"/>
+  </url>
+
+</urlset>
