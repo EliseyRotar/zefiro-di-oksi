@@ -112,6 +112,10 @@
       'contact.note': 'Qui non c\'è un negozio né alcuna attività commerciale, solo ciò che creo con le mie mani, per il cuore e nel tempo libero.',
       'contact.credit': 'Sito creato da <a href="https://github.com/EliseyRotar" target="_blank" rel="noopener noreferrer">Elisey Rotar</a> · studente di Informatica @ Dalmine Marconi',
 
+      'navhint.body': 'Usa le icone in basso per navigare',
+      'navhint.close': 'Chiudi',
+      'navhint.aria': 'Suggerimento di navigazione',
+
       'footer.tagline': 'fiori di zefir fatti a mano, con cura',
       'footer.disclaimer': 'Sito amatoriale, non un e-commerce',
       'footer.credit.label': 'Sito creato da',
@@ -222,6 +226,10 @@
       'contact.note': 'Здесь нет магазина или коммерции, только то, что я создаю своими руками для души и в свободное время.',
       'contact.credit': 'Сайт создан <a href="https://github.com/EliseyRotar" target="_blank" rel="noopener noreferrer">Элисей Ротар</a> · студент Информатики в Дальмине, лицей Маркони',
 
+      'navhint.body': 'Используйте иконки внизу для навигации',
+      'navhint.close': 'Закрыть',
+      'navhint.aria': 'Подсказка навигации',
+
       'footer.tagline': 'нежные цветы из зефира, ручная работа',
       'footer.disclaimer': 'Любительский сайт, не интернет-магазин',
       'footer.credit.label': 'Сайт сделал',
@@ -331,6 +339,10 @@
       'contact.email': 'zefirodioksi@proton.me',
       'contact.note': 'There\'s no shop or business here, just what I create by hand, for the soul and in my free time.',
       'contact.credit': 'Site created by <a href="https://github.com/EliseyRotar" target="_blank" rel="noopener noreferrer">Elisey Rotar</a> · Computer Science student @ Dalmine Marconi',
+
+      'navhint.body': 'Use the icons below to navigate',
+      'navhint.close': 'Close',
+      'navhint.aria': 'Navigation hint',
 
       'footer.tagline': 'handmade zefir flowers, with care',
       'footer.disclaimer': 'Amateur site, not an e-commerce',

@@ -45,6 +45,11 @@ build/
 # Script di test/debug one-shot usati durante lo sviluppo
 /scripts/test-gallery-debug.js
 /scripts/test-live-final.js
+/scripts/debug-*.js
+/scripts/add-nav-hint.js
+/scripts/cf-rum-list.ps1
+/scripts/check-render.js
+/scripts/check-live.js
 
 # Messaggi vocali/audio di lavoro (non fanno parte del sito)
 /audio/

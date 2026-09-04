@@ -164,6 +164,17 @@
       </div>
 
       <div class="adm-card">
+        <h3>Suggerimento di navigazione</h3>
+        <p class="adm-card-sub">Banner che appare sulla home per aiutare gli utenti (soprattutto i meno esperti) a scoprire la navigazione in basso.</p>
+        <div class="adm-form-actions">
+          <button type="button" class="adm-btn primary" id="adm-nav-hint-show">Mostra di nuovo il suggerimento</button>
+          <button type="button" class="adm-btn ghost" id="adm-nav-hint-hide">Nascondi di nuovo</button>
+        </div>
+        <p class="adm-note">"Mostra di nuovo" resetta il flag su TUTTI i browser/dispositivi che visitano la home (i singoli utenti lo potranno poi chiudere cliccando X o navigando). "Nascondi di nuovo" imposta il flag dismissed per ricordare che l'utente gia' lo conosce.</p>
+        <p class="adm-note">Stato attuale: <b id="adm-nav-hint-status">?</b></p>
+      </div>
+
+      <div class="adm-card">
         <h3>Backup e ripristino</h3>
         <p class="adm-card-sub">Esporta tutto (analytics + contenuti + galleria + configurazione) come file JSON.</p>
         <div class="adm-form-actions">
@@ -244,6 +255,31 @@
       S.clearAnalytics();
       toast('Analytics cancellate.', 'ok');
       renderSection();
+    };
+
+    /* Nav hint: mostra/nascondi suggerimento navigazione */
+    const showHint = document.getElementById('adm-nav-hint-show');
+    const hideHint = document.getElementById('adm-nav-hint-hide');
+    const statusEl = document.getElementById('adm-nav-hint-status');
+    function refreshHintStatus() {
+      if (!statusEl) return;
+      try {
+        const dismissed = localStorage.getItem('zefiro:navHintDismissed') === '1';
+        statusEl.textContent = dismissed ? 'NASCOSTO (gli utenti lo hanno chiuso o navigato)' : 'ATTIVO (visibile a chi non lo ha ancora chiuso)';
+        statusEl.style.color = dismissed ? '#b91c1c' : '#15803d';
+      } catch (_) {}
+    }
+    refreshHintStatus();
+    if (showHint) showHint.onclick = () => {
+      try { localStorage.removeItem('zefiro:navHintDismissed'); } catch (_) {}
+      if (window.ZefiroNavHint) window.ZefiroNavHint.clearDismissed();
+      toast('Suggerimento riattivato. Sara visibile al prossimo reload della home.', 'ok');
+      refreshHintStatus();
+    };
+    if (hideHint) hideHint.onclick = () => {
+      try { localStorage.setItem('zefiro:navHintDismissed', '1'); } catch (_) {}
+      toast('Suggerimento nascosto su questo browser.', 'ok');
+      refreshHintStatus();
     };
 
     /* Nuke */
