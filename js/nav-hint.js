@@ -1,14 +1,15 @@
 /* =========================================================
    Zefiro di Oksi - nav-hint.js
-   Gestisce il banner "usa le icone in basso" + freccia animata.
+   Banner "usa le icone in basso" + freccia animata.
 
    Comportamento:
-   - Al boot, se localStorage 'zefiro:navHintDismissed' != '1',
-     mostra il banner (solo in home) + la freccia (su tutte le pagine).
-   - Click sul bottone X → nasconde banner e freccia, salva dismissed=1.
-   - Click su QUALSIASI link della bottom-nav → nasconde banner e freccia
-     automaticamente (l'utente ha capito come si naviga).
-   - L'admin può resettare lo stato (vedi admin/storage.js: resetNavHint).
+   - Banner creato runtime da JS (presente su TUTTE le pagine pubbliche).
+   - Freccia animata iniettata su tutte le pagine.
+   - Mostra/nasconde in base a localStorage 'zefiro:navHintDismissed'.
+   - Click X → nasconde + salva dismissed=1.
+   - Click su QUALSIASI link della bottom-nav → dismiss automatico.
+   - Admin può resettare (vedi admin: resetNavHint).
+   - Si re-localizza su evento 'zefiro:langchange'.
    ========================================================= */
 
 (function () {
@@ -16,6 +17,7 @@
 
   const DISMISSED_KEY = 'zefiro:navHintDismissed';
   const ARROW_ID = 'nav-hint-arrow';
+  const BANNER_ID = 'nav-hint';
 
   function isDismissed() {
     try { return localStorage.getItem(DISMISSED_KEY) === '1'; }
@@ -28,85 +30,91 @@
     try { localStorage.removeItem(DISMISSED_KEY); } catch (_) {}
   }
 
-  // Espone helper per admin
-  window.ZefiroNavHint = { clearDismissed };
+  window.ZefiroNavHint = { clearDismissed, isDismissed };
 
-  // ============ Freccia animata (iniettata su tutte le pagine) ============
+  // ============ Build banner HTML ============
+  function ensureBanner() {
+    let b = document.getElementById(BANNER_ID);
+    if (b) return b;
+    b = document.createElement('div');
+    b.id = BANNER_ID;
+    b.className = 'nav-hint';
+    b.setAttribute('role', 'region');
+    b.innerHTML = `
+      <span class="nav-hint-emoji" aria-hidden="true">&#x1F447;</span>
+      <span class="nav-hint-text" data-i18n="navhint.body"></span>
+      <button type="button" class="nav-hint-close" data-nav-hint-close aria-label="">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6 L18 18 M18 6 L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" fill="none"/></svg>
+      </button>
+    `;
+    document.body.appendChild(b);
+    return b;
+  }
+
   function ensureArrow() {
-    if (document.getElementById(ARROW_ID)) return;
-    const div = document.createElement('div');
-    div.id = ARROW_ID;
-    div.className = 'nav-hint-arrow';
-    div.setAttribute('aria-hidden', 'true');
-    div.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 V20 M5 13 L12 20 L19 13"/></svg>';
-    document.body.appendChild(div);
+    let a = document.getElementById(ARROW_ID);
+    if (a) return a;
+    a = document.createElement('div');
+    a.id = ARROW_ID;
+    a.className = 'nav-hint-arrow';
+    a.setAttribute('aria-hidden', 'true');
+    a.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 V20 M5 13 L12 20 L19 13"/></svg>';
+    document.body.appendChild(a);
+    return a;
   }
 
-  function showArrow() {
-    ensureArrow();
-    const a = document.getElementById(ARROW_ID);
-    if (a) a.hidden = false;
-  }
-  function hideArrow() {
-    const a = document.getElementById(ARROW_ID);
-    if (a) a.hidden = true;
-  }
+  function hideBanner() { const b = document.getElementById(BANNER_ID); if (b) b.hidden = true; }
+  function hideArrow()  { const a = document.getElementById(ARROW_ID); if (a) a.hidden = true; }
 
-  // ============ Banner (solo in home) ============
-  function hideBanner() {
-    const b = document.getElementById('nav-hint');
-    if (b) b.hidden = true;
-  }
   function showBanner() {
-    const b = document.getElementById('nav-hint');
-    if (b) {
-      b.hidden = false;
-      // Aggiorna label aria localizzata
-      const t = window.I18N && window.I18N.t;
-      if (t) {
-        const aria = t('navhint.aria');
-        if (aria) b.setAttribute('aria-label', aria);
-        const closeLabel = t('navhint.close');
-        const closeBtn = b.querySelector('[data-nav-hint-close]');
-        if (closeBtn && closeLabel) closeBtn.setAttribute('aria-label', closeLabel);
-      }
-    }
+    const b = ensureBanner();
+    b.hidden = false;
+    localizeBanner();
+  }
+  function showArrow() {
+    const a = ensureArrow();
+    a.hidden = false;
+  }
+
+  function localizeBanner() {
+    const T = window.I18N && window.I18N.t;
+    if (!T) return;
+    const banner = document.getElementById(BANNER_ID);
+    if (!banner) return;
+    const aria = T('navhint.aria');
+    if (aria) banner.setAttribute('aria-label', aria);
+    const closeLabel = T('navhint.close');
+    const closeBtn = banner.querySelector('[data-nav-hint-close]');
+    if (closeBtn && closeLabel) closeBtn.setAttribute('aria-label', closeLabel);
+    const bodyEl = banner.querySelector('[data-i18n="navhint.body"]');
+    if (bodyEl) bodyEl.textContent = T('navhint.body');
   }
 
   function dismissEverything() {
     hideBanner();
     hideArrow();
     setDismissed();
+    document.body.classList.remove('nav-hint-active');
   }
 
-  // ============ Bind close button ============
+  // ============ Bind handlers ============
   document.addEventListener('click', function (e) {
     const closeBtn = e.target.closest('[data-nav-hint-close]');
     if (closeBtn) {
       e.preventDefault();
+      e.stopPropagation();
       dismissEverything();
       return;
     }
-    // Click su qualsiasi link della bottom-nav
     const navLink = e.target.closest('.bottom-nav a');
     if (navLink) {
       dismissEverything();
     }
   });
 
-  // ============ Re-localize banner on language change ============
-  function localizeBanner() {
-    const banner = document.getElementById('nav-hint');
-    if (!banner) return;
-    const T = window.I18N && window.I18N.t;
-    if (!T) return;
-    const aria = T('navhint.aria');
-    if (aria) banner.setAttribute('aria-label', aria);
-    const closeLabel = T('navhint.close');
-    const closeBtn = banner.querySelector('[data-nav-hint-close]');
-    if (closeBtn && closeLabel) closeBtn.setAttribute('aria-label', closeLabel);
-  }
-  document.addEventListener('zefiro:langchange', localizeBanner);
+  document.addEventListener('zefiro:langchange', function () {
+    if (!isDismissed()) localizeBanner();
+  });
 
   // ============ Boot ============
   function init() {
@@ -115,14 +123,14 @@
       hideArrow();
       return;
     }
-    // Mostra banner solo se l'elemento esiste (cioè siamo in home)
-    const banner = document.getElementById('nav-hint');
-    if (banner) showBanner();
-    // Mostra sempre la freccia (anche sulle altre pagine aiuta)
+    showBanner();
     showArrow();
+    document.body.classList.add('nav-hint-active');
+    // Localize after i18n has run
+    if (window.I18N) localizeBanner();
+    else setTimeout(function () { if (window.I18N) localizeBanner(); }, 100);
   }
 
-  // Aspetta che i18n sia pronto
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
