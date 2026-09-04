@@ -110,6 +110,7 @@
       'contact.body': 'Questo è il mio hobby, nato dal desiderio di regalare un po\' di bellezza a chi mi è caro e a chi mi sta sempre vicino. Se anche voi, come me, siete affascinati dai fiori, che siano bouquet veri o le loro delicate copie commestibili, e volete saperne di più, sarò felice di scambiare due parole. zefirodioksi@proton.me',
       'contact.email': 'zefirodioksi@proton.me',
       'contact.note': 'Qui non c\'è un negozio né alcuna attività commerciale, solo ciò che creo con le mie mani, per il cuore e nel tempo libero.',
+      'contact.credit': 'Sito creato da <a href="https://github.com/EliseyRotar" target="_blank" rel="noopener noreferrer">Elisey Rotar</a> · studente di Informatica @ Dalmine Marconi',
 
       'footer.tagline': 'fiori di zefir fatti a mano, con cura',
       'footer.disclaimer': 'Sito amatoriale, non un e-commerce',
@@ -219,6 +220,7 @@
       'contact.body': 'Это моё хобби, которое родилось из желания дарить красоту тем, кто мне дорог и кто всегда рядом. Если вы, как и я, восхищаетесь цветами, будь то живые букеты или их нежные съедобные копии, и хотите узнать больше — буду рада общению. zefirodioksi@proton.me',
       'contact.email': 'zefirodioksi@proton.me',
       'contact.note': 'Здесь нет магазина или коммерции, только то, что я создаю своими руками для души и в свободное время.',
+      'contact.credit': 'Сайт создан <a href="https://github.com/EliseyRotar" target="_blank" rel="noopener noreferrer">Элисей Ротар</a> · студент Информатики в Дальмине, лицей Маркони',
 
       'footer.tagline': 'нежные цветы из зефира, ручная работа',
       'footer.disclaimer': 'Любительский сайт, не интернет-магазин',
@@ -328,6 +330,7 @@
       'contact.body': 'This is my hobby, born from a wish to give a little beauty to the people I care about and who are always close to me. If you, like me, are drawn to flowers, whether real bouquets or their delicate edible copies, and would like to know more, I\'d be happy to chat. zefirodioksi@proton.me',
       'contact.email': 'zefirodioksi@proton.me',
       'contact.note': 'There\'s no shop or business here, just what I create by hand, for the soul and in my free time.',
+      'contact.credit': 'Site created by <a href="https://github.com/EliseyRotar" target="_blank" rel="noopener noreferrer">Elisey Rotar</a> · Computer Science student @ Dalmine Marconi',
 
       'footer.tagline': 'handmade zefir flowers, with care',
       'footer.disclaimer': 'Amateur site, not an e-commerce',
