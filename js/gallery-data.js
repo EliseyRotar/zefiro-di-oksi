@@ -1,4 +1,4 @@
-/* =========================================================
+﻿/* =========================================================
    Zefiro di Oksi - galleria
    Elenco immagini + categorie + tagli correlati per lightbox.
    ========================================================= */
@@ -213,7 +213,7 @@
   const BY_FILE = {};
   ITEMS.forEach(it => { BY_FILE[it.file] = it; });
 
-  global.GALLERY = {
+  window.GALLERY = {
     ITEMS,
     FILTERS,
     visibleItems,

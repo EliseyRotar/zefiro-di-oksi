@@ -1,4 +1,4 @@
-/* =========================================================
+﻿/* =========================================================
    Zefiro di Oksi - admin content + gallery editor
    Modifica testi (home/contact/support/about) e galleria
    (upload immagini, riordino, cambio categoria, eliminazione).
@@ -10,8 +10,8 @@
 (function (global) {
   'use strict';
 
-  const S = global.AdminStorage;
-  const T = global.I18N ? global.I18N.t : (k) => k;
+  const S = window.AdminStorage;
+  const T = window.I18N ? window.I18N.t : (k) => k;
 
   function esc(s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({
@@ -124,7 +124,7 @@
 
   function renderGallery() {
     /* Combina foto originali (da gallery-data.js) + custom (da localStorage) */
-    const baseItems = (global.GALLERY && global.GALLERY.ITEMS) || [];
+    const baseItems = (window.GALLERY && window.GALLERY.ITEMS) || [];
     const overrides = S.getGalleryOverrides();
     const custom = S.getCustomPhotos();
 
@@ -406,9 +406,9 @@
   }
 
   /* Esporta toast anche per altri moduli */
-  global.AdminToast = toast;
+  window.AdminToast = toast;
 
-  global.AdminEditor = {
+  window.AdminEditor = {
     renderContent, bindContent,
     renderGallery, bindGallery,
     toast,

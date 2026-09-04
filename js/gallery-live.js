@@ -24,13 +24,13 @@
 
   function applyOverrides() {
     const grid = document.getElementById('gallery-grid');
-    if (!grid || !global.GALLERY) return;
+    if (!grid || !window.GALLERY) return;
 
     const overrides = lsGet(NS + ':gallery-overrides', {});
     const custom = lsGet(NS + ':gallery-custom', []);
 
     /* Applica override (cat, hidden, order) agli items esistenti */
-    global.GALLERY.ITEMS.forEach(it => {
+    window.GALLERY.ITEMS.forEach(it => {
       const ov = overrides[it.file];
       if (ov) {
         if (ov.cat != null) it.cat = ov.cat;
@@ -41,7 +41,7 @@
 
     /* Aggiungi le custom alla fine */
     custom.forEach((c, i) => {
-      global.GALLERY.ITEMS.push({
+      window.GALLERY.ITEMS.push({
         file: c.id + '.jpg',
         custom: true,
         id: c.id,
@@ -54,7 +54,7 @@
     });
 
     /* Re-render la griglia */
-    if (global.GALLERY.renderAll) global.GALLERY.renderAll();
+    if (window.GALLERY.renderAll) window.GALLERY.renderAll();
   }
 
   ready(applyOverrides);

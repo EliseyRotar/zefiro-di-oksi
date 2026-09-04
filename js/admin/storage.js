@@ -1,4 +1,4 @@
-/* =========================================================
+﻿/* =========================================================
    Zefiro di Oksi - admin storage layer
    Namespace e helper per:
    - Auth (hash password + token persistente con scadenza)
@@ -260,7 +260,7 @@
   }
 
   /* ---------- exports ---------- */
-  global.AdminStorage = {
+  window.AdminStorage = {
     sha256Hex,
     /* auth */
     login, logout, isAuthed, getStoredHash, setStoredHash,

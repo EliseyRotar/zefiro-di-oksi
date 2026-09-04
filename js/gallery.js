@@ -1,4 +1,4 @@
-/* =========================================================
+﻿/* =========================================================
    Zefiro di Oksi - galleria UI
    - Render griglia filtrata
    - Lightbox accessibile (keyboard + swipe)
@@ -31,18 +31,18 @@
   /* ---------- helpers ---------- */
 
   function t(key, vars) {
-    const s = (global.I18N && global.I18N.t(key)) || key;
+    const s = (window.I18N && window.I18N.t(key)) || key;
     if (!vars) return s;
     return s.replace(/\{(\w+)\}/g, (m, k) => (k in vars ? vars[k] : m));
   }
 
-  function getLang() { return (global.I18N && global.I18N.getLang()) || 'it'; }
+  function getLang() { return (window.I18N && window.I18N.getLang()) || 'it'; }
 
   /* ---------- filtri ---------- */
 
   function renderFilters() {
     filtersHost.innerHTML = '';
-    const list = (global.GALLERY && global.GALLERY.FILTERS) || [
+    const list = (window.GALLERY && window.GALLERY.FILTERS) || [
       { id: 'myworks', labelKey: 'gallery.filter.myworks' },
       { id: 'zefir', labelKey: 'gallery.filter.zefir' },
     ];
@@ -61,9 +61,9 @@
   /* ---------- render griglia ---------- */
 
   function render() {
-    currentList = (global.GALLERY.visibleItems
-      ? global.GALLERY.visibleItems(currentFilter)
-      : (global.GALLERY.getByCategory(currentFilter) || []));
+    currentList = (window.GALLERY.visibleItems
+      ? window.GALLERY.visibleItems(currentFilter)
+      : (window.GALLERY.getByCategory(currentFilter) || []));
     grid.innerHTML = '';
 
     if (!currentList.length) {
@@ -130,7 +130,7 @@
     lbImg.alt = currentItem.alt;
 
     // bottone taglio correlato
-    const BY = global.GALLERY.BY_FILE || {};
+    const BY = window.GALLERY.BY_FILE || {};
     if (currentItem.slice) {
       const sliceItem = BY[currentItem.slice];
       if (sliceItem) {
@@ -166,7 +166,7 @@
   }
 
   function findParent(sliceFile) {
-    const ITEMS = global.GALLERY.ITEMS || [];
+    const ITEMS = window.GALLERY.ITEMS || [];
     return ITEMS.find(it => it.slice === sliceFile) || null;
   }
 
@@ -181,7 +181,7 @@
     if (mode === 'open-slice') {
       // naviga alla slice (anche se e' hidden nella galleria, la mostriamo solo qui)
       const sliceFile = lbSlice.dataset.sliceFile;
-      const BY = global.GALLERY.BY_FILE || {};
+      const BY = window.GALLERY.BY_FILE || {};
       const sliceItem = BY[sliceFile];
       if (!sliceItem) return;
       currentItem = sliceItem;

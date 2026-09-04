@@ -1,4 +1,4 @@
-/* =========================================================
+﻿/* =========================================================
    Zefiro di Oksi - admin analytics dashboard
    Renderizza sezione analytics (grafici SVG inline, tabelle, monitor live).
    ========================================================= */
@@ -6,8 +6,8 @@
 (function (global) {
   'use strict';
 
-  const S = global.AdminStorage;
-  const T = global.I18N ? global.I18N.t : (k) => k;
+  const S = window.AdminStorage;
+  const T = window.I18N ? window.I18N.t : (k) => k;
 
   function esc(s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({
@@ -404,5 +404,5 @@
     `;
   }
 
-  global.AdminAnalytics = { render };
+  window.AdminAnalytics = { render };
 })(window);

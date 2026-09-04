@@ -1,4 +1,4 @@
-/* =========================================================
+﻿/* =========================================================
    Zefiro di Oksi - admin main
    Entry point + router delle sezioni + auth UI + export/import
    ========================================================= */
@@ -6,10 +6,10 @@
 (function (global) {
   'use strict';
 
-  const S = global.AdminStorage;
-  const A = global.AdminAnalytics;
-  const E = global.AdminEditor;
-  const T = global.I18N ? global.I18N.t : (k) => k;
+  const S = window.AdminStorage;
+  const A = window.AdminAnalytics;
+  const E = window.AdminEditor;
+  const T = window.I18N ? window.I18N.t : (k) => k;
   const toast = E.toast;
 
   /* Stato */

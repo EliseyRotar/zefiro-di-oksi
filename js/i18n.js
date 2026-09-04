@@ -1,4 +1,4 @@
-/* =========================================================
+﻿/* =========================================================
    Zefiro di Oksi - internazionalizzazione
    Gestisce IT / RU / EN con persistenza in localStorage,
    rilevamento automatico dalla lingua del browser,
@@ -117,7 +117,7 @@
       'footer.credit.name': 'Elisey Rotar',
       'footer.credit.role': 'studente di Informatica @ Dalmine Marconi',
       'support.title': 'P.S.',
-      'support.body': 'Se avete voglia di sostenermi in questo mio percorso, ogni piccolo contributo sara' gradito. Grazie di cuore.',
+      'support.body': 'Se avete voglia di sostenermi in questo mio percorso, ogni piccolo contributo sarà gradito. Grazie di cuore.',
       'support.note': '',
     },
 
@@ -500,7 +500,7 @@
   }
 
   /* API pubblica */
-  global.I18N = {
+  window.I18N = {
     t,
     get,
     setLang,
