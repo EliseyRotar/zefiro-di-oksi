@@ -252,10 +252,17 @@
 
   /* ---------- init ---------- */
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => { renderFilters(); render(); });
-  } else {
+  function init() {
     renderFilters();
     render();
   }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+  /* Espone render per gallery-live.js per ri-renderizzare dopo
+     upload o override dall'admin. */
+  if (window.GALLERY) window.GALLERY.renderAll = init;
 })(window);

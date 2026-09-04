@@ -58,16 +58,17 @@
 
     <section class="section container" aria-labelledby="titolo-supporto">
       <article class="support-card">
-        <h2 id="titolo-supporto" class="support-title" data-i18n="support.title">Un piccolo gesto, se ti va</h2>
-        <p class="support-body" data-i18n="support.body">
+        <h2 id="titolo-supporto" class="support-title" data-i18n="support.title" data-content="support.title">Un piccolo gesto, se ti va</h2>
+        <p class="support-body" data-i18n="support.body" data-content="support.body">
           Questo hobby è nato per dare un po' di bellezza a chi mi è vicino...
         </p>
-        <p class="support-note" data-i18n="support.note">
+        <p class="support-note" data-i18n="support.note" data-content="support.note">
           Nessun obbligo, nessuna pressione. Solo se ti fa piacere.
         </p>
         <div class="support-email-wrap">
           <a class="contact-email"
-             href="mailto:zefirodioksi@proton.me?subject=Un%20piccolo%20gesto%20per%20il%20tuo%20hobby">
+             href="mailto:zefirodioksi@proton.me?subject=Un%20piccolo%20gesto%20per%20il%20tuo%20hobby"
+             data-content="contact.email">
             <span data-i18n="contact.email">zefirodioksi@proton.me</span>
           </a>
         </div>
@@ -110,6 +111,7 @@
   <script src="js/seo.js"></script>
   <script src="js/og-meta.js"></script>
   <script src="js/analytics.js"></script>
+  <script src="js/content-live.js"></script>
   <script src="js/main.js"></script>
   <script>document.getElementById('anno').textContent = new Date().getFullYear();</script>
 </body>

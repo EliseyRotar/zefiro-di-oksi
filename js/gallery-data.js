@@ -216,5 +216,6 @@
     visibleItems,
     BY_FILE,
     getByCategory(cat) { return visibleItems(cat); },
+    renderAll: null, /* impostato da js/gallery.js se serve */
   };
 })(window);
