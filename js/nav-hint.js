@@ -1,13 +1,13 @@
 /* =========================================================
    Zefiro di Oksi - nav-hint.js
-   Banner "usa le icone in basso" + freccia animata.
+   Banner "usa i quadrati colorati in alto" + freccia animata.
 
    Comportamento:
    - Banner creato runtime da JS (presente su TUTTE le pagine pubbliche).
-   - Freccia animata iniettata su tutte le pagine.
+   - Freccia animata che punta in ALTO verso la navbar.
    - Mostra/nasconde in base a localStorage 'zefiro:navHintDismissed'.
    - Click X → nasconde + salva dismissed=1.
-   - Click su QUALSIASI link della bottom-nav → dismiss automatico.
+   - Click su QUALSIASI link della navbar → dismiss automatico.
    - Admin può resettare (vedi admin: resetNavHint).
    - Si re-localizza su evento 'zefiro:langchange'.
    ========================================================= */
@@ -41,13 +41,19 @@
     b.className = 'nav-hint';
     b.setAttribute('role', 'region');
     b.innerHTML = `
-      <span class="nav-hint-emoji" aria-hidden="true">&#x1F447;</span>
+      <span class="nav-hint-emoji" aria-hidden="true">&#x1F446;</span>
       <span class="nav-hint-text" data-i18n="navhint.body"></span>
       <button type="button" class="nav-hint-close" data-nav-hint-close aria-label="">
         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6 L18 18 M18 6 L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" fill="none"/></svg>
       </button>
     `;
-    document.body.appendChild(b);
+    // Inserisci banner + freccia subito DOPO la navbar (in alto)
+    const nav = document.querySelector('.bottom-nav');
+    if (nav && nav.nextSibling) {
+      nav.parentNode.insertBefore(b, nav.nextSibling);
+    } else {
+      document.body.appendChild(b);
+    }
     return b;
   }
 
@@ -58,8 +64,13 @@
     a.id = ARROW_ID;
     a.className = 'nav-hint-arrow';
     a.setAttribute('aria-hidden', 'true');
-    a.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 V20 M5 13 L12 20 L19 13"/></svg>';
-    document.body.appendChild(a);
+    a.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20 V4 M5 11 L12 4 L19 11"/></svg>';
+    const banner = document.getElementById(BANNER_ID);
+    if (banner && banner.parentNode) {
+      banner.parentNode.insertBefore(a, banner);
+    } else {
+      document.body.appendChild(a);
+    }
     return a;
   }
 

@@ -51,7 +51,7 @@
     }
   }
 
-  /* Fade-in del bottom-nav con piccolo slide-up al primo load */
+  /* Fade-in della top navbar con piccolo slide-down al primo load */
   function setupBottomNavEntrance() {
     const nav = document.querySelector('.bottom-nav');
     if (!nav) return;
