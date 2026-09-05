@@ -184,10 +184,10 @@
       alt: 'Torta a forma di numero 14' },
   ];
 
-  /* Filtri attivi: "I miei lavori" (tutto tranne zefir) + "Zefir" */
+  /* Filtri attivi: "Zefir" (default) + "I miei lavori" (tutto tranne zefir) */
   const FILTERS = [
-    { id: 'myworks', labelKey: 'gallery.filter.myworks' },
     { id: 'zefir',   labelKey: 'gallery.filter.zefir' },
+    { id: 'myworks', labelKey: 'gallery.filter.myworks' },
   ];
 
   function visibleItems(cat) {
