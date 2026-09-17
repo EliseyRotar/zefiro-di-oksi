@@ -83,11 +83,20 @@
         </p>
         <p class="support-note" data-i18n="support.note" data-content="support.note" hidden></p>
         <div class="support-email-wrap">
-          <a class="contact-email"
+          <p class="contact-cta-hint" data-i18n="contact.cta_hint">Tocca il bottone — si aprirà la tua app email</p>
+          <a class="contact-cta-btn"
+             id="contact-cta-link"
              href="mailto:zefirodioksi@proton.me?subject=Un%20saluto%20da%20Zefiro%20di%20Oksi"
-             data-content="contact.email">
-            <span data-i18n="contact.email">zefirodioksi@proton.me</span>
+             aria-label="Scrivimi via email">
+            <svg class="contact-cta-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="3"/>
+              <path d="M2 7 L12 14 L22 7"/>
+            </svg>
+            <span data-i18n="contact.cta_label">Scrivimi</span>
           </a>
+          <p class="contact-email-small">
+            <span data-i18n="contact.email">zefirodioksi@proton.me</span>
+          </p>
         </div>
       </article>
     </section>
@@ -108,6 +117,17 @@
   <script src="js/content-live.js"></script>
   <script src="js/main.js"></script>
   <script src="js/nav-hint.js"></script>
-  <script>document.getElementById('anno').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('anno').textContent = new Date().getFullYear();
+    // Keep the mailto subject in sync with the active language
+    function updateMailtoSubject() {
+      var link = document.getElementById('contact-cta-link');
+      if (!link || !window.I18N) return;
+      var subject = window.I18N.t('contact.subject');
+      link.href = 'mailto:zefirodioksi@proton.me?subject=' + encodeURIComponent(subject);
+    }
+    document.addEventListener('DOMContentLoaded', updateMailtoSubject);
+    document.addEventListener('zefiro:langchange', updateMailtoSubject);
+  </script>
 </body>
 </html>
