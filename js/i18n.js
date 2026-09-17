@@ -47,7 +47,6 @@
       'home.tagline': 'Fiori di zefir fatti a mano, con amore.',
       'home.scroll': 'scorri',
       'home.image_alt': 'Foto di Oksi che tiene in mano un bouquet di zefir (in arrivo)',
-      'home.photo_caption': 'Questa foto l\'ho scattata io, con il mio telefono.',
 
       'about.title': 'Chi sono',
       'about.body': 'Sono Oksana, ma per gli amici sono semplicemente Oksi, ed è proprio per questo che il mio piccolo mondo dolce si chiama «Zefiro di Oksi». Ho sempre amato il mondo della pasticceria: ho iniziato da bambina, osservando mia nonna, che era chef in un ristorante rinomato, e da allora non ho mai smesso di imparare. Ho preparato torte, pasticcini, biscotti, crostate, croissant, profumate brioches francesi, cheesecake e dolci al cioccolato, ho imparato la glassa a specchio e molto altro ancora. Di recente ho scoperto una nuova passione: la fioristica di zefir, un dolce delicatissimo che non ha nulla a che vedere con il marshmallow. Sto ancora imparando, frequento un corso di fioristica di zefir, e il diploma arriverà tra qualche mese. Ma sono già felice di mostrarvi le mie prime piccole composizioni. Ogni fiore nasce da purea di frutta fatta in casa, senza conservanti, lattosio o glutine, con albumina e agar-agar, un\'alternativa naturale alla gelatina adatta anche ai vegetariani. Ho già provato a lavorare con diversi gusti: mela, lampone, ribes nero, pesca, banana, mirtillo di bosco. Presto arriveranno pera, ciliegia, melone e mango: la mia collezione cresce insieme a me. In ogni composizione amo unire fiori di gusti diversi, così ogni bouquet diventa una piccola sorpresa da scoprire.',
@@ -110,7 +109,6 @@
       'contact.title': 'Parliamo di fiori',
       'contact.body': 'Questo è il mio hobby, nato dal desiderio di regalare un po\' di bellezza a chi mi è caro e a chi mi sta sempre vicino. Se anche Voi, come me, siete affascinati dai fiori, che siano bouquet veri o le loro delicate copie commestibili, e volete saperne di più, sarò felice di scambiare due parole.',
       'contact.email': 'zefirodioksi@proton.me',
-      'contact.note': 'Qui non c\'è un negozio né alcuna attività commerciale, solo ciò che creo con le mie mani, per il cuore e nel tempo libero.',
       'contact.credit': 'Sito creato da <a href="https://github.com/EliseyRotar" target="_blank" rel="noopener noreferrer">Elisey Rotar</a> · studente di Informatica @ Dalmine Marconi',
 
       'navhint.body': 'Usa i quadrati colorati qui sopra per navigare',
@@ -162,7 +160,6 @@
       'home.tagline': 'Цветы из зефира — ручная работа, с любовью.',
       'home.scroll': 'дальше',
       'home.image_alt': 'Фото Окси с букетом из зефира в руках (скоро будет)',
-      'home.photo_caption': 'Это фото я сделала сама, на свой телефон.',
 
       'about.title': 'Обо мне',
       'about.body': 'Я - Оксана, но для друзей просто Окси — именно поэтому мой маленький сладкий мир называется «Зефиро ди Окси». Я всегда любила кондитерский мир: начала ещё ребёнком, наблюдая за бабушкой, которая была шеф-поваром в известном ресторане, — и с тех пор не переставала учиться. Я готовила торты, пироженные, печенье, кростаты, круассаны, ароматные французские булочки, чизкейки и шоколадные десерты, освоила зеркальную глазурь и многое другое. А недавно открыла для себя новое увлечение — зефирную флористику: нежнейший десерт, который не имеет ничего общего с маршмэллоу. Я ещё учусь, посещаю курсы зефирной флористики, дипломная работа будет через несколько месяцев. Но мне уже приятно показать вам мои первые небольшие композиции. Каждый цветок рождается из домашнего фруктового пюре без консервантов, лактозы и глютена, с альбумином и агар-агаром — натуральной альтернативой желатину, которая подходит и вегетарианцам. Пробовала уже работать с несколькими вкусами: яблоко, малина, чёрная смородина, персик, банан, лесная клюква. В ближайшее время появятся груша, вишня, дыня и манго — моя коллекция растёт вместе со мной. В каждой композиции я люблю сочетать цветы разных вкусов, так что каждый букет становится маленьким сюрпризом, который предстоит открыть.',
@@ -225,7 +222,6 @@
       'contact.title': 'Поговорим о цветах',
       'contact.body': 'Это моё хобби, которое родилось из желания дарить красоту тем, кто мне дорог и кто всегда рядом. Если Вы, как и я, восхищаетесь цветами, будь то живые букеты или их нежные съедобные копии, и хотите узнать больше — буду рада общению.',
       'contact.email': 'zefirodioksi@proton.me',
-      'contact.note': 'Здесь нет магазина или коммерции, только то, что я создаю своими руками для души и в свободное время.',
       'contact.credit': 'Сайт создан <a href="https://github.com/EliseyRotar" target="_blank" rel="noopener noreferrer">Элисей Ротар</a> · студент Информатики в Дальмине, лицей Маркони',
 
       'navhint.body': 'Используйте цветные квадратики выше для навигации',
@@ -277,7 +273,6 @@
       'home.tagline': 'Handmade zefir flowers, with love.',
       'home.scroll': 'scroll',
       'home.image_alt': 'Photo of Oksi holding a zefir bouquet (coming soon)',
-      'home.photo_caption': 'I took this photo myself, with my phone.',
 
       'about.title': 'About me',
       'about.body': 'I\'m Oksana, but to friends I\'m simply Oksi, which is exactly why my little sweet world is called "Zefiro di Oksi." I\'ve always loved the world of pastry-making: I started as a child, watching my grandmother, who was a chef at a well-known restaurant, and I\'ve never stopped learning since. I\'ve made cakes, pastries, cookies, tarts, croissants, fragrant French brioches, cheesecakes and chocolate desserts, and learned mirror glaze techniques and much more. Recently I discovered a new passion: zephyr floristry, a delicate dessert that has nothing to do with marshmallow. I\'m still learning, taking a zephyr floristry course, and my diploma is a few months away. But I\'m already happy to show you my first small arrangements. Every flower is made from homemade fruit purée, free of preservatives, lactose and gluten, with albumin and agar-agar, a natural alternative to gelatin that\'s also suitable for vegetarians. I\'ve already worked with several flavors: apple, raspberry, blackcurrant, peach, banana, wild cranberry. Pear, cherry, melon and mango are coming soon, my collection keeps growing along with me. In every arrangement I love combining flowers of different flavors, so every bouquet becomes a little surprise waiting to be discovered.',
@@ -340,7 +335,6 @@
       'contact.title': 'Let\'s talk about flowers',
       'contact.body': 'This is my hobby, born from a wish to give a little beauty to the people I care about and who are always close to me. If You, like me, are drawn to flowers, whether real bouquets or their delicate edible copies, and would like to know more, I\'d be happy to chat.',
       'contact.email': 'zefirodioksi@proton.me',
-      'contact.note': 'There\'s no shop or business here, just what I create by hand, for the soul and in my free time.',
       'contact.credit': 'Site created by <a href="https://github.com/EliseyRotar" target="_blank" rel="noopener noreferrer">Elisey Rotar</a> · Computer Science student @ Dalmine Marconi',
 
       'navhint.body': 'Use the colorful squares above to navigate',
