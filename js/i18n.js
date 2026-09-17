@@ -109,6 +109,9 @@
       'contact.title': 'Parliamo di fiori',
       'contact.body': 'Questo è il mio hobby, nato dal desiderio di regalare un po\' di bellezza a chi mi è caro e a chi mi sta sempre vicino. Se anche Voi, come me, siete affascinati dai fiori, che siano bouquet veri o le loro delicate copie commestibili, e volete saperne di più, sarò felice di scambiare due parole.',
       'contact.email': 'zefirodioksi@proton.me',
+      'contact.cta_label': 'Scrivimi',
+      'contact.cta_hint': 'Tocca il bottone — si aprirà la tua app email',
+      'contact.subject': 'Un saluto da Zefiro di Oksi',
       'contact.credit': 'Sito creato da <a href="https://github.com/EliseyRotar" target="_blank" rel="noopener noreferrer">Elisey Rotar</a> · studente di Informatica @ Dalmine Marconi',
 
       'navhint.body': 'Usa i quadrati colorati qui sopra per navigare',
@@ -222,6 +225,9 @@
       'contact.title': 'Поговорим о цветах',
       'contact.body': 'Это моё хобби, которое родилось из желания дарить красоту тем, кто мне дорог и кто всегда рядом. Если Вы, как и я, восхищаетесь цветами, будь то живые букеты или их нежные съедобные копии, и хотите узнать больше — буду рада общению.',
       'contact.email': 'zefirodioksi@proton.me',
+      'contact.cta_label': 'Написать мне',
+      'contact.cta_hint': 'Нажмите кнопку — откроется ваше почтовое приложение',
+      'contact.subject': 'Привет от Зефиро ди Окси',
       'contact.credit': 'Сайт создан <a href="https://github.com/EliseyRotar" target="_blank" rel="noopener noreferrer">Элисей Ротар</a> · студент Информатики в Дальмине, лицей Маркони',
 
       'navhint.body': 'Используйте цветные квадратики выше для навигации',
@@ -335,6 +341,9 @@
       'contact.title': 'Let\'s talk about flowers',
       'contact.body': 'This is my hobby, born from a wish to give a little beauty to the people I care about and who are always close to me. If You, like me, are drawn to flowers, whether real bouquets or their delicate edible copies, and would like to know more, I\'d be happy to chat.',
       'contact.email': 'zefirodioksi@proton.me',
+      'contact.cta_label': 'Write to me',
+      'contact.cta_hint': 'Tap the button — your email app will open',
+      'contact.subject': 'Hello from Zefiro di Oksi',
       'contact.credit': 'Site created by <a href="https://github.com/EliseyRotar" target="_blank" rel="noopener noreferrer">Elisey Rotar</a> · Computer Science student @ Dalmine Marconi',
 
       'navhint.body': 'Use the colorful squares above to navigate',
